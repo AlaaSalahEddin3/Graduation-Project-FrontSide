@@ -4,7 +4,7 @@
  * Copyright 2013-2017 bootstrap-select
  * Licensed under MIT (https://github.com/heimrichhannot/bootstrap-select/LICENSE)
  */
-
+//alert("Helllllllllllllo Alaaaaaaaaaaaaa");
 (function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module unless amdModuleId is set
@@ -19,6 +19,7 @@
     } else {
         factory(root['jQuery']);
     }
+    //alert("dddddddddddddddddddd");
 }(this, function(jQuery) {
 
     (function($) {

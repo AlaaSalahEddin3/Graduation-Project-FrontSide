@@ -33,7 +33,24 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+             "src/assets/js/jquery-3.2.1.min.js",
+              "src/assets/js/popper.min.js",
+            "src/assets/js/bootstrap.min.js",
+        
+            "src/assets/js/jquery.superslides.min.js",
+              "src/assets/js/bootstrap-select.js",
+             "src/assets/js/inewsticker.js",
+       "src/assets/js/bootsnav.js.",
+           "src/assets/js/images-loded.min.js",
+             "src/assets/js/isotope.min.js",
+            "src/assets/js/owl.carousel.min.js",
+           "src/assets/js/baguetteBox.min.js",
+              "src/assets/js/form-validator.min.js",
+            "src/assets/js/contact-form-script.js",
+             "src/assets/js/custom.js"
+
+            ]
           },
           "configurations": {
             "production": {

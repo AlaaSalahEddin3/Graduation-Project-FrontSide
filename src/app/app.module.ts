@@ -11,6 +11,10 @@ import { IndexComponent } from './Categorys/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AddSubCatogryComponent } from './SubCategory/add-sub-catogry/add-sub-catogry.component';
+import { UpdateSubCategoryComponent } from './SubCategory/update-sub-category/update-sub-category.component';
+import { ShowComponent } from './SubCategory/show/show.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
    
     AddCategoryComponent,
     UbdateCategoryComponent,
-    IndexComponent
+    IndexComponent,
+  
+    AddSubCatogryComponent,
+    UpdateSubCategoryComponent,
+    ShowComponent
   ],
   imports: [
     BrowserModule,

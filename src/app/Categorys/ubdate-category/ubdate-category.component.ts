@@ -19,18 +19,18 @@ export class UbdateCategoryComponent implements OnInit {
    }
 
   updateCategoryForm=this.fb.group({
-    ID:[,[]],
-    Name:['',[Validators.required]]
+    id:[,[]],
+    name:['',[Validators.required]]
 
   })
-  get Name()
+  get name()
   {
 
-    return this.updateCategoryForm.get('Name')
+    return this.updateCategoryForm.get('name')
   }
-  get ID()
+  get id()
   {
-    return this.updateCategoryForm.get('ID')
+    return this.updateCategoryForm.get('id')
   }
 
 catId:number;
@@ -43,7 +43,7 @@ catId:number;
       {
         this.caty=res;
      //   alert(this.caty.Name);
-        this.updateCategoryForm.controls['CategoryName'].setValue(this.caty.Name);
+        this.updateCategoryForm.controls['CategoryName'].setValue(this.caty.name);
       },
     
       (errorResponse)=>
@@ -62,7 +62,7 @@ catId:number;
     
        this.caty=Object.assign(this.caty, this.updateCategoryForm.value);
 
-    this.categoryService.updateCategory(this.route.snapshot.params.ID,this.caty).subscribe(
+    this.categoryService.updateCategory(this.route.snapshot.params.id,this.caty).subscribe(
       (res)=>
       {
         this.router.navigate(['/Category/Index']);

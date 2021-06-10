@@ -10,9 +10,9 @@
     <div class="form-group col-sm-6">
        <label>Category Name</label>
     
-       <input type="text" formControlName="Name" class="form-control" [class.is-invalid]="Name.invalid && Name.touched">
-       <div *ngIf="Name.invalid && Name.touched">
-        <small class="text-danger" *ngIf="Name.errors.required">Category Name is required</small>
+       <input type="text" formControlName="name" class="form-control" [class.is-invalid]="name.invalid && name.touched">
+       <div *ngIf="name.invalid && name.touched">
+        <small class="text-danger" *ngIf="name.errors.required">Category Name is required</small>
            </div>
 
     </div>

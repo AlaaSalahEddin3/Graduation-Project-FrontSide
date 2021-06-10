@@ -18,23 +18,23 @@ export class AddCategoryComponent implements OnInit {
   dataSaved=false;
   
   massage: any;
-  ID: number=0;
+  id: number=0;
   addCategoryForm:any
   ngOnInit(): void {
     this.addCategoryForm=this.fb.group({
-      Name:['',[Validators.required]],
-      Description :['',[Validators.required]],
+      name:['',[Validators.required]],
+      description :['',[Validators.required]],
     })
    this.getCategory();
  
   }
-  get Name()
+  get name()
   {
-    return this.addCategoryForm.get('Name')
+    return this.addCategoryForm.get('name')
   }
-  get Description(){
+  get description(){
 
-    return this.addCategoryForm.get('Description')
+    return this.addCategoryForm.get('description')
   }
   getCategory(){
     this.categoryService.returnAllCategory().subscribe((Data)=>{
@@ -48,13 +48,13 @@ Reset() {
  } 
 addCategory(category: Category) {  
   debugger;  
-  category.ID= this.ID;  
+  category.id= this.id;  
   this.categoryService.addCategory(category).subscribe(  
    () => {  
     this.dataSaved = true;  
     this.massage = 'Record saved Successfully';  
     this.Reset();  
-    this.ID = 0; 
+    this.id = 0; 
     this.getCategory();      
    });  
    this.router.navigate(['/Category/Index']);

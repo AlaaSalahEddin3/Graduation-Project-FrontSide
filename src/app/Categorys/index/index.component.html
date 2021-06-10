@@ -19,12 +19,12 @@
     
        
         <tr *ngFor="let cat of categoryList">
-                <td> {{cat.ID}}</td>  
-                <td> {{cat.Name}}</td> 
-                <td> {{cat.Description}}</td>  
+                <td> {{cat.id}}</td>  
+                <td> {{cat.name}}</td> 
+                <td> {{cat.description}}</td>  
             <td>
-                        <a href="" class="btn btn-success" [routerLink]="['/CategorysUPdate/', cat.ID]">Update </a>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-danger"  (click)="deleteCategory(cat.ID)"  data->Delete</button>
+                        <a href="" class="btn btn-success" [routerLink]="['/CategorysUPdate/', cat.id]">Update </a>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-danger"  (click)="deleteCategory(cat.id)"  data->Delete</button>
    
                     </td>
     

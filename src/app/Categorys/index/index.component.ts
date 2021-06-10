@@ -15,13 +15,13 @@ export class IndexComponent implements OnInit {
   errorMsg: any;
   dataSaved=false;
   massage: string;
-  ID: number=0;
+  id: number=0;
   addCategoryForm:any;
 
   ngOnInit(): void {
     this.addCategoryForm=this.fb.group({
-      Name:['',[Validators.required]],
-      Description:['',[Validators.required]]
+      name:['',[Validators.required]],
+      description:['',[Validators.required]]
     })
    this.getCategory();
  
@@ -30,6 +30,7 @@ export class IndexComponent implements OnInit {
     this.categoryService.returnAllCategory().subscribe(
     (Data)=>{
       this.categoryList=Data;
+      console.log("hhhhhhhh");
      },
     (err)=>{
     this.errorMsg=err;

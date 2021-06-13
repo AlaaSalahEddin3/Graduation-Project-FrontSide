@@ -1,4 +1,3 @@
-alert("asert");
 (function($) {
     "use strict";
 	

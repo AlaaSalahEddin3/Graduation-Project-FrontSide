@@ -1,5 +1,21 @@
 
-<nav class="bg-danger border-top dashboardSideBar">
+<div class="sidenav">
+    <a routerLink="products">Products</a>
+    <a routerLink="categories">Categories</a>
+    <a href="#clients">sub_Categories</a>
+    <a href="#contact">Modals</a>
+    <a href="#Brands">Brands</a>
+    <a href="#Orders">users</a>
+    <a href="#Orders">Orders</a>
+  </div>
+  
+  <div class="main">
+     
+   <router-outlet></router-outlet>
+     </div>
+  
+<!-- 
+<nav class=" border-top dashboardSideBar">
 
     <ul class="list-unstyled pt-5 pl-3">
 
@@ -17,7 +33,7 @@
             <a routerLink="brans"><i class="fas fa-tags"></i> Brands</a>
         </li>
         <li>
-            <a routerLink="Models"><i class="fas fa-tags"></i> Sub Categories</a>
+            <a routerLink="Models"><i class="fas fa-tags"></i> Modals</a>
         </li>
 
         <li> 
@@ -29,3 +45,4 @@
         
     </ul>
 </nav>
+ -->

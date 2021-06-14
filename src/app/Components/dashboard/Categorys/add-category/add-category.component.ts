@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/Services/category.service';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/Models/category';
@@ -18,7 +18,7 @@ export class AddCategoryComponent implements OnInit {
   
   massage: any;
   id: number=0;
-  addCategoryForm:any;
+  addCategoryForm!:FormGroup;
   ngOnInit(): void {
     this.addCategoryForm=this.fb.group({
       name:['',[Validators.required]],

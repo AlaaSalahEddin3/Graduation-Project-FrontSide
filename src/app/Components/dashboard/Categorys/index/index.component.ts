@@ -21,7 +21,7 @@ export class IndexComponent implements OnInit {
   addCategoryForm:any;
 
   ngOnInit(): void {
-    alert("Hello");
+    
     this.addCategoryForm=this.fb.group({
       name:['',[Validators.required]],
       description:['',[Validators.required]]

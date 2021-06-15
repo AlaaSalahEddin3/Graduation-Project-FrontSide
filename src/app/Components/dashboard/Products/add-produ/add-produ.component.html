@@ -1,0 +1,30 @@
+
+<div class="content">
+
+
+    <div>
+      <form [formGroup]="productform">
+        <label for="fname">Product Name</label>
+        <input type="text" formControlName="name" id="fname" name="firstname" placeholder="product name..">
+    
+        <label for="quantity">Quantity</label>
+        <input type="text" formControlName="quantity" id="lname" name="lastname" placeholder="product Quantity..">
+        <label for="lname">Price</label>
+        <input type="text" id="lname" formControlName="price" name="lastname" placeholder="product discount..">
+        <label for="lname">Discount</label>
+        <input type="text" id="lname" formControlName="discount" name="lastname" placeholder="Your last name..">
+        <label for="lname">Desciption</label>
+   <textarea formControlName="description" id="lname" name="lastname" placeholder="Describe Product"></textarea>
+        <label for="lname">Image</label>
+        <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+        <label for="country">Categories</label>
+        
+      
+        <input type="submit" value="Submit" (click)="add()">
+      </form>
+    </div>
+  </div>
+  
+  
+  
+

@@ -1,0 +1,36 @@
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15pt;
+  }
+ 
+
+  textarea
+  {
+      font-size:20pt ;
+      width: 50%;
+  }
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  form
+  {
+     
+  }
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+    .content
+    {
+        margin-left: 300px;
+      justify-content: center;;
+      margin-top: 1px;
+      width: 65%;
+    }

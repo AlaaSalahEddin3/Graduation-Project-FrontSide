@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private _http: HttpClient) { }
 
   getAllProducts(): Observable<ProducVM[]> {
-   let url = `${environment.apiUrl}/api/product`;
+   let url = `${environment.apiUrl}/api/Product`;
     return this._http.get<ProducVM[]>(url).pipe(catchError((err) =>
      {
       return throwError(err.message || "Internal Server error contact site adminstarator");

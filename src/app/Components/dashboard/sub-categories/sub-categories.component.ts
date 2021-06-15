@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Category } from 'src/app/Models/category';
 import { SubCategory } from 'src/app/Models/sub-category';
-import { ConfirmModalComponent } from 'src/app/reusedComponent/confirm-modal/confirm-modal.component';
+//import { ConfirmModalComponent } from 'src/app/reusedComponent/confirm-modal/confirm-modal.component';
 import { SubcategoryService } from 'src/app/Services/subcategory.service';
 
 @Component({
@@ -16,7 +16,7 @@ import { SubcategoryService } from 'src/app/Services/subcategory.service';
 export class SubCategoriesComponent implements OnInit {
 
   @ViewChild('addOrUpdateModelCloseBtn') addOrUpdateModelCloseBtn:any;
-  @ViewChild(ConfirmModalComponent) confirmModal!:ConfirmModalComponent;
+ // @ViewChild(ConfirmModalComponent) confirmModal!:ConfirmModalComponent;
   hasCategories:boolean = false;
   private _categoryToUpdate!:SubCategory;
   allCategories!:SubCategory[]; 
@@ -149,11 +149,7 @@ export class SubCategoriesComponent implements OnInit {
   }
   openDeleteCategoryModal(categoryId:any){
     //this._categoryToDeleteId = categoryId;
-    this.confirmModal.pointerToFunction = this._categoryService.deleteCategory
-    this.confirmModal.title = "Delete Category";
-    this.confirmModal.itemId = categoryId;
-    this.confirmModal.message = "Are you sure to delete this category";
-    this.confirmModal.pageUrl = this._router.url;
+  
     //this.confirmModal.entityName ="category";
   }
 

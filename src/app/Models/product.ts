@@ -6,5 +6,5 @@ export class Product {
   discount!:number;
   image!:string;
   quantity!:number;
-  Sub_CatogeryId!:number;
+  Sub_Catogery_Id!:number;
 }

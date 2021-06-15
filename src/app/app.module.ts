@@ -18,8 +18,12 @@ import { AddCategoryComponent } from './Components/dashboard/Categorys/add-categ
 import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ConfirmModalComponent } from './reusedComponent/confirm-modal/confirm-modal.component';
+//import { ConfirmModalComponent } from './reusedComponent/confirm-modal/confirm-modal.component';
 import { SubCategoriesComponent } from './Components/dashboard/sub-categories/sub-categories.component';
+//import { AddproductComponent } from './Components/dashboard/product/Products/addproduct/addproduct.component';
+//import { UpdateproductComponent } from './Components/dashboard/product/Products/updateproduct/updateproduct.component';
+import { UploadComponent } from './Components/ReusableComponents/upload/upload.component';
+import { AddProduComponent } from './Components/dashboard/Products/add-produ/add-produ.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +40,10 @@ import { SubCategoriesComponent } from './Components/dashboard/sub-categories/su
     IndexComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-    ConfirmModalComponent,
-    SubCategoriesComponent
+    SubCategoriesComponent,
+
+    UploadComponent,
+    AddProduComponent
   ],
   imports: [
     HttpClientModule,

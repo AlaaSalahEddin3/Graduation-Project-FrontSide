@@ -7,4 +7,5 @@ export class Product {
   image!:string;
   quantity!:number;
   Sub_Catogery_Id!:number;
+  Model_Id!:number
 }

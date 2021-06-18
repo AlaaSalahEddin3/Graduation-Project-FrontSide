@@ -6,9 +6,7 @@ export class ProducVM {
   discount!:number;
   image!:string;
   quantity!:number;
-  categoryId!:number;
-  colorId!:number;
-  colorName!:string;
-  categoryName!:string
+  modelName!:string;
+  subCatgoryName!:string
   averageRating!:number;
 }

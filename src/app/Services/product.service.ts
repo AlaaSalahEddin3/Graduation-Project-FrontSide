@@ -32,6 +32,7 @@ export class ProductService {
     }));
   }
   addNewProduct(newProduct: Product): Observable<Product> {
+    console.log(newProduct);
     let url = `${environment.apiUrl}/api/product`;
     return this._http.post<Product>(url, newProduct)
       .pipe(catchError((err) => {

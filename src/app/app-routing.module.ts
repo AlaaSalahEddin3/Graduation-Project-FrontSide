@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 //import { CategoriesComponent } from './Components/dashboard/categories/categories.component';
 import { IndexComponent } from './Components/dashboard/Categorys/index/index.component';
+import { ModelComponent } from './Components/dashboard/Model/model/model.component';
 import { OrderComponent } from './Components/dashboard/order/order.component';
 import { AddProduComponent } from './Components/dashboard/Products/add-produ/add-produ.component';
 import { SubCategoriesComponent } from './Components/dashboard/sub-categories/sub-categories.component';
@@ -19,7 +21,10 @@ const routes: Routes = [
   {path: 'products', component:AddProduComponent},
   {path: 'users', component: UsersComponent},
   {path:"AddCategory",component:AddCategoryComponent},
-{path:'subCategories',component:SubCategoriesComponent}
+{path:'subCategories',component:SubCategoriesComponent},
+{path:'brans',component:AddBrandComponent},
+{path:'models',component:ModelComponent},
+{path:'subcategories',component:SubCategoriesComponent}
 ];
 
 @NgModule({

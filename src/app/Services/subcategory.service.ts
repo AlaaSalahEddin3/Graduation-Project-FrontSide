@@ -17,7 +17,14 @@ export class SubcategoryService {
   constructor(private http:HttpClient) { }
   //url='http://localhost:56568/api/controller';
   url= environment.apiUrl+'/api/Sub_Category';
-  
+  returnRlatedSubCategory(id:any):Observable<SubCategory[]>
+  {
+     return this.http.get<SubCategory[]>(this.url+'/GetSubs/'+id).pipe(catchError((err)=>
+      {
+
+        return throwError(err.message ||"Internal Server error contact site adminstarator");
+      }));
+  }
   addCategory(subcategory:SubCategory): Observable<any> {
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(subcategory);

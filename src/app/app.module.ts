@@ -24,6 +24,9 @@ import { SubCategoriesComponent } from './Components/dashboard/sub-categories/su
 //import { UpdateproductComponent } from './Components/dashboard/product/Products/updateproduct/updateproduct.component';
 import { UploadComponent } from './Components/ReusableComponents/upload/upload.component';
 import { AddProduComponent } from './Components/dashboard/Products/add-produ/add-produ.component';
+import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
+import { UpdateBrandComponent } from './Components/dashboard/Brand/update-brand/update-brand.component';
+import { ModelComponent } from './Components/dashboard/Model/model/model.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { AddProduComponent } from './Components/dashboard/Products/add-produ/add
     SubCategoriesComponent,
 
     UploadComponent,
-    AddProduComponent
+    AddProduComponent,
+    AddBrandComponent,
+    UpdateBrandComponent,
+    ModelComponent
   ],
   imports: [
     HttpClientModule,

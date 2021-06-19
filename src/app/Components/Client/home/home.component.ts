@@ -19,7 +19,7 @@ getAllCategory()
 {
   this.categoryService.returnAllCategory().subscribe((data)=>{
     this.allCaregories=data;
-    this.clonedCategories=this.allCaregories.splice(0,12);
+    this.clonedCategories=this.allCaregories.splice(0,13);
   },(error)=>{alert(error)})
 
 }

@@ -27,6 +27,7 @@ import { AddProduComponent } from './Components/dashboard/Products/add-produ/add
 import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
 import { UpdateBrandComponent } from './Components/dashboard/Brand/update-brand/update-brand.component';
 import { ModelComponent } from './Components/dashboard/Model/model/model.component';
+import { HomeComponent } from './Components/Client/home/home.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ModelComponent } from './Components/dashboard/Model/model/model.compone
     AddProduComponent,
     AddBrandComponent,
     UpdateBrandComponent,
-    ModelComponent
+    ModelComponent,
+    HomeComponent
   ],
   imports: [
     HttpClientModule,

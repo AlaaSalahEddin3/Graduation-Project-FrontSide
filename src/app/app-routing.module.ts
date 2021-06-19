@@ -4,6 +4,7 @@ import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-br
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 //import { CategoriesComponent } from './Components/dashboard/categories/categories.component';
 import { IndexComponent } from './Components/dashboard/Categorys/index/index.component';
+import { DashboardComponent } from './Components/dashboard/dashboard/dashboard.component';
 import { ModelComponent } from './Components/dashboard/Model/model/model.component';
 import { OrderComponent } from './Components/dashboard/order/order.component';
 import { AddProduComponent } from './Components/dashboard/Products/add-produ/add-produ.component';
@@ -24,7 +25,8 @@ const routes: Routes = [
 {path:'subCategories',component:SubCategoriesComponent},
 {path:'brans',component:AddBrandComponent},
 {path:'models',component:ModelComponent},
-{path:'subcategories',component:SubCategoriesComponent}
+{path:'subcategories',component:SubCategoriesComponent},
+{path:'dashboard',component:DashboardComponent}
 ];
 
 @NgModule({

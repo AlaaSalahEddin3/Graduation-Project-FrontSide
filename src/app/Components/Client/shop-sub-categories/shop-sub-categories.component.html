@@ -5,7 +5,7 @@
 
  <div class="subcategories" >
       <div class="column-img" *ngFor="let subcategory of clonedSubCategories">
-          <a><img style="width: 275px; height: 200px;"  [src]="createImgPath(subcategory.image)"></a>
+          <a routerLink=""><img style="width: 275px; height: 200px;"  [src]="createImgPath(subcategory.image)"></a>
           <span class="subCategoryName">{{subcategory.name}}</span>
 
       </div>

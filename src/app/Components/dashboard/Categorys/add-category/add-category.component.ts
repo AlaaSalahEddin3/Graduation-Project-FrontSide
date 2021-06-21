@@ -24,6 +24,7 @@ export class AddCategoryComponent implements OnInit {
     this.addCategoryForm=this.fb.group({
       name:['',[Validators.required]],
       description :['',[Validators.required]],
+      discount:['',Validators.required]
     })
 //this.getCategory();
  
@@ -39,6 +40,10 @@ export class AddCategoryComponent implements OnInit {
   get description(){
 
     return this.addCategoryForm.get('description')
+  }
+  get discount()
+  {
+    return this.addCategoryForm.get('discount')
   }
   /*getCategory(){
     this.categoryService.returnAllCategory().subscribe((Data)=>{

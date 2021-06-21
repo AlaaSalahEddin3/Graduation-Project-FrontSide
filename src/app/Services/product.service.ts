@@ -19,6 +19,13 @@ export class ProductService {
     }
     ));
   }
+  
+  getaRelatedproducts(id:any): Observable<ProducVM[]> {
+    let url = `${environment.apiUrl}/api/GetAllWith/${id}`;
+    return this._http.get<ProducVM[]>(url).pipe(catchError((err) => {
+      return throwError(err.message || "Internal Server error contact site adminstarator");
+    }));
+   }
   getNewArrivalsProducts(numberOfProducts:number): Observable<ProducVM[]> {
     let url = `${environment.apiUrl}/api/product/newArrivals/${numberOfProducts}`;
     return this._http.get<ProducVM[]>(url).pipe(catchError((err) => {

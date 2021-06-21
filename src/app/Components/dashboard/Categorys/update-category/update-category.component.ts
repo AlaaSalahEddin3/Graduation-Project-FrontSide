@@ -19,7 +19,8 @@ export class UpdateCategoryComponent implements OnInit {
    }
 
   updateCategoryForm=this.fb.group({
-    name:['',[Validators.required]]
+    name:['',[Validators.required]],
+    discount:['',[Validators.required]]
   })
   get name()
   {
@@ -29,6 +30,10 @@ export class UpdateCategoryComponent implements OnInit {
   get id()
   {
     return this.updateCategoryForm.get('id')
+  }
+  get discount()
+  {
+    return this.updateCategoryForm.get('discount')
   }
 
 catId!:number;
@@ -60,7 +65,7 @@ catId!:number;
   UpdateCategory() {
     
        this.caty=Object.assign(this.caty, this.updateCategoryForm.value);
-       console.log(this.caty);
+       //console.log(this.caty);
        this.caty.image=this.response.dbPath
     this.categoryService.updateCategory(this.route.snapshot.params.id,this.caty).subscribe(
       (res)=>

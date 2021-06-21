@@ -5,35 +5,40 @@ import { HttpClient } from '@angular/common/http';
 import { Observable ,throwError } from 'rxjs';
 import { Category } from '../Models/category';
 import { environment } from 'src/environments/environment';
-
-
+import { Brand } from '../Models/brand';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class BrandService {
 
+ 
   
   constructor(private http:HttpClient) { }
   //url='http://localhost:56568/api/controller';
-  url=environment.apiUrl+'/api/Category';
+  url=environment.apiUrl+'/api/Brand';
   
-  addCategory(category:Category): Observable<any> {
-    const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(category);
-
-    return this.http.post<Category>(this.url, body,{headers:headers})
+  addNrand(brand:Brand): Observable<any> {
+    let url = `${environment.apiUrl}/api/Brand`;
+    console.log(brand);
+      //url='http://localhost:56568/api/controller';
+    return this.http.post<Brand>(url,brand)
+      .pipe(catchError((err) => {
+        console.log(err);
+        return throwError(err.message || "Internal Server error contact site adminstarator");
+      }
+      ));
 }
 
-    returnAllCategory():Observable<Category[]>
+    returnAllBrans():Observable<Brand[]>
     {
-       return this.http.get<Category[]>(this.url).pipe(catchError((err)=>
+       return this.http.get<Brand[]>(this.url).pipe(catchError((err)=>
         {
 
           return throwError(err.message ||"Internal Server error contact site adminstarator");
         }));
     }
-    updateCategory(id:any,category:Category): Observable<Category> {
-      return this.http.put<Category>(this.url+'/'+id,category).pipe(
+    updatebrand(id:any,brand:Brand): Observable<Brand> {
+      return this.http.put<Brand>(this.url+'/'+id,brand).pipe(
         catchError((err)=>{
           console.log("erro ocuured")
           return throwError(err.message ||"Internal Server error contact site adminstarator");
@@ -42,16 +47,16 @@ export class CategoryService {
         })
       );
   }
-  deleteCategory(id: number):Observable<number>{
+  deleteBrand(id: number):Observable<number>{
     return this.http.delete<number>(this.url+'/'+id)
     .pipe(
       catchError( (err) => {
         return throwError(err.message ||"Error deleting travellers data.");
      }));
 }
-getCategoryById(id:any):Observable<Category>
+getBrandById(id:any):Observable<Brand>
 {
-  return this.http.get<Category>(this.url+'/'+id).pipe(catchError((err)=>
+  return this.http.get<Brand>(this.url+'/'+id).pipe(catchError((err)=>
   {
 
     return throwError(err.message ||"Internal Server error contact site adminstarator");

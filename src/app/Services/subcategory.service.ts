@@ -1,36 +1,47 @@
+import { observable } from 'rxjs';
+
+
+import { SubCategory } from '../Models/sub-category';
 import {catchError} from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable ,throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Isubcategory } from '../Shared_Interfaces/Isubcategory';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubcategoryService {
 
+  
   constructor(private http:HttpClient) { }
   //url='http://localhost:56568/api/controller';
-  url='http://localhost:56568/api/Sub_Category';
-  
-  addCategory(subcategory:Isubcategory): Observable<any> {
+  url= environment.apiUrl+'/api/Sub_Category';
+  returnRlatedSubCategory(id:any):Observable<SubCategory[]>
+  {
+     return this.http.get<SubCategory[]>(this.url+'/GetSubs/'+id).pipe(catchError((err)=>
+      {
+
+        return throwError(err.message ||"Internal Server error contact site adminstarator");
+      }));
+  }
+  addCategory(subcategory:SubCategory): Observable<any> {
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(subcategory);
 
-    return this.http.post<Isubcategory>(this.url, body,{headers:headers})
+    return this.http.post<SubCategory>(this.url, body,{headers:headers})
 }
 
-    returnAllCategory():Observable<Isubcategory[]>
+    returnAllCategory():Observable<SubCategory[]>
     {
-       return this.http.get<Isubcategory[]>(this.url).pipe(catchError((err)=>
+       return this.http.get<SubCategory[]>(this.url).pipe(catchError((err)=>
         {
 
           return throwError(err.message ||"Internal Server error contact site adminstarator");
         }));
     }
-    updateCategory(id:any,subcategory:Isubcategory): Observable<Isubcategory> {
-      return this.http.put<Isubcategory>(this.url+'/'+id,subcategory).pipe(
+    updateCategory(id:any,subcategory:SubCategory): Observable<SubCategory> {
+      return this.http.put<SubCategory>(this.url+'/'+id,subcategory).pipe(
         catchError((err)=>{
           console.log("erro ocuured")
           return throwError(err.message ||"Internal Server error contact site adminstarator");
@@ -46,9 +57,9 @@ export class SubcategoryService {
         return throwError(err.message ||"Error deleting travellers data.");
      }));
 }
-getCategoryById(id:any):Observable<Isubcategory>
+getCategoryById(id:any):Observable<SubCategory>
 {
-  return this.http.get<Isubcategory>(this.url+'/'+id).pipe(catchError((err)=>
+  return this.http.get<SubCategory>(this.url+'/'+id).pipe(catchError((err)=>
   {
 
     return throwError(err.message ||"Internal Server error contact site adminstarator");

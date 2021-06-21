@@ -3,37 +3,67 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
-import { AddCategoryComponent } from './Categorys/add-category/add-category.component';
-import { UbdateCategoryComponent } from './Categorys/ubdate-category/ubdate-category.component';
-import { IndexComponent } from './Categorys/index/index.component';
+//import { CategoriesComponent } from './Components/dashboard/categories/categories.component';
+//import { SubCategoryComponent } from './Components/dashboard/sub-category/sub-category.component';
+//import { ProductComponent } from './Components/dashboard/product/product.component';
+import { SideBarComponent } from './Components/dashboard/side-bar/side-bar.component';
+import { UsersComponent } from './Components/dashboard/users/users.component';
+import { DashboardComponent } from './Components/dashboard/dashboard/dashboard.component';
+import { OrderComponent } from './Components/dashboard/order/order.component';
+import { IndexComponent } from './Components/dashboard/Categorys/index/index.component';
+import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
+import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-import { AddSubCatogryComponent } from './SubCategory/add-sub-catogry/add-sub-catogry.component';
-import { UpdateSubCategoryComponent } from './SubCategory/update-sub-category/update-sub-category.component';
-import { ShowComponent } from './SubCategory/show/show.component';
+//import { ConfirmModalComponent } from './reusedComponent/confirm-modal/confirm-modal.component';
+import { SubCategoriesComponent } from './Components/dashboard/sub-categories/sub-categories.component';
+//import { AddproductComponent } from './Components/dashboard/product/Products/addproduct/addproduct.component';
+//import { UpdateproductComponent } from './Components/dashboard/product/Products/updateproduct/updateproduct.component';
+import { UploadComponent } from './Components/ReusableComponents/upload/upload.component';
+import { AddProduComponent } from './Components/dashboard/Products/add-produ/add-produ.component';
+import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
+import { UpdateBrandComponent } from './Components/dashboard/Brand/update-brand/update-brand.component';
+import { ModelComponent } from './Components/dashboard/Model/model/model.component';
+import { HomeComponent } from './Components/Client/home/home.component';
+import { ShowProductComponent } from './Components/Client/home/show-product/show-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-   
-    AddCategoryComponent,
-    UbdateCategoryComponent,
+    FooterComponent,
+    DashboardComponent,
+  //  CategoriesComponent,
+ 
+    //ProductComponent,
+    SideBarComponent,
+    UsersComponent,
+    OrderComponent,
     IndexComponent,
-  
-    AddSubCatogryComponent,
-    UpdateSubCategoryComponent,
-    ShowComponent
+    AddCategoryComponent,
+    UpdateCategoryComponent,
+    SubCategoriesComponent,
+
+    UploadComponent,
+    AddProduComponent,
+    AddBrandComponent,
+    UpdateBrandComponent,
+    ModelComponent,
+    HomeComponent,
+    ShowProductComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,6 +33,7 @@ import { ShopSubCategoriesComponent } from './Components/Client/shop-sub-categor
 import { QuickViewComponent } from './Components/Client/quick-view/quick-view.component';
 import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
+import { ShowProductComponent } from './Components/Client/show-product/show-product.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { LoginComponent } from './Components/Authentication/login/login.componen
     AddCategoryComponent,
     UpdateCategoryComponent,
     SubCategoriesComponent,
- 
+    ShowProductComponent,
     UploadComponent,
     AddProduComponent,
     AddBrandComponent,

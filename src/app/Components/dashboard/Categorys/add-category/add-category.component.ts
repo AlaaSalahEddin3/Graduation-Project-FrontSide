@@ -15,6 +15,7 @@ export class AddCategoryComponent implements OnInit {
   categoryList:Category []=[];
   errorMsg: any;
   dataSaved=false;
+  public response = {dbPath: ''};
   
   massage: any;
   id: number=0;
@@ -50,8 +51,9 @@ Reset() {
   this.addCategoryForm.reset();  
  } 
 addCategory(category: Category) {  
-  debugger;  
+  //debugger;  
   category.id= this.id;  
+  category.image=this.response.dbPath
   this.categoryService.addCategory(category).subscribe(  
    () => {  
     this.dataSaved = true;  
@@ -62,6 +64,8 @@ addCategory(category: Category) {
    });  
    this.router.navigate(['/Category/Index']);
  } 
-
+ public uploadFinished = (event:any) => { 
+  this.response = event;
+}
 
 }

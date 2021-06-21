@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ShopAllCategoriesComponent } from './Components/Client/shop-all-categories/shop-all-categories.component';
 import { ShopSubCategoriesComponent } from './Components/Client/shop-sub-categories/shop-sub-categories.component';
+import { LoginComponent } from './Components/Authentication/login/login.component';
+import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 //import { CategoriesComponent } from './Components/dashboard/categories/categories.component';
@@ -16,9 +18,11 @@ import { SubCategoriesComponent } from './Components/dashboard/sub-categories/su
 //import { SubCategoryComponent } from './Components/dashboard/sub-category/sub-category.component';
 //import { ShowComponent } from './Components/dashboard/SubCategory/show/show.component';
 import { UsersComponent } from './Components/dashboard/users/users.component';
+import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
 
 const routes: Routes = [
-
+  {path:'Register',component:RegisterComponent},
+  {path:'Login',component:LoginComponent},
   {path: 'categories', component: IndexComponent},
   {path: 'orders', component:OrderComponent},
   {path: 'products', component:AddProduComponent},
@@ -30,7 +34,9 @@ const routes: Routes = [
 {path:'subcategories',component:SubCategoriesComponent},
 {path:'dashboard',component:DashboardComponent},
 {path:'allcategories',component:ShopAllCategoriesComponent},
-{path:'Getsubcategories/:id',component:ShopSubCategoriesComponent}
+{path:'Getsubcategories/:id',component:ShopSubCategoriesComponent},
+{path:'CategorysUPdate/:id',component: UpdateCategoryComponent }
+
 //{path:'allcategories',component}
 ];
 

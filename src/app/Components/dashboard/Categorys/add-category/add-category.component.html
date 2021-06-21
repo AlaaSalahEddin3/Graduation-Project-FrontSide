@@ -22,6 +22,10 @@
                         <small class="text-danger" *ngIf="description!.errors!.required">Description is required</small>
                     </div>
                 </div>
+                <div>
+                    <label >Image</label>
+                    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+                </div>
                 <div class=" col-sm-6"><br>
                     <button type="submit" class="button">Add Category</button>
                 </div>

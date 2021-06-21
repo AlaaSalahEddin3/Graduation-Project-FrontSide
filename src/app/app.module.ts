@@ -16,7 +16,7 @@ import { OrderComponent } from './Components/dashboard/order/order.component';
 import { IndexComponent } from './Components/dashboard/Categorys/index/index.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 //import { ConfirmModalComponent } from './reusedComponent/confirm-modal/confirm-modal.component';
 import { SubCategoriesComponent } from './Components/dashboard/sub-categories/sub-categories.component';
@@ -31,6 +31,8 @@ import { HomeComponent } from './Components/Client/home/home.component';
 import { ShopAllCategoriesComponent } from './Components/Client/shop-all-categories/shop-all-categories.component';
 import { ShopSubCategoriesComponent } from './Components/Client/shop-sub-categories/shop-sub-categories.component';
 import { QuickViewComponent } from './Components/Client/quick-view/quick-view.component';
+import { RegisterComponent } from './Components/Authentication/register/register.component';
+import { LoginComponent } from './Components/Authentication/login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { QuickViewComponent } from './Components/Client/quick-view/quick-view.co
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
+    RegisterComponent,
+     LoginComponent,
   //  CategoriesComponent,
  
     //ProductComponent,
@@ -48,7 +52,7 @@ import { QuickViewComponent } from './Components/Client/quick-view/quick-view.co
     AddCategoryComponent,
     UpdateCategoryComponent,
     SubCategoriesComponent,
-
+ 
     UploadComponent,
     AddProduComponent,
     AddBrandComponent,
@@ -65,7 +69,7 @@ import { QuickViewComponent } from './Components/Client/quick-view/quick-view.co
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     
     
   ],

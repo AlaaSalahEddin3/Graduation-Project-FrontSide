@@ -61,6 +61,7 @@ catId!:number;
     
        this.caty=Object.assign(this.caty, this.updateCategoryForm.value);
        console.log(this.caty);
+       this.caty.image=this.response.dbPath
     this.categoryService.updateCategory(this.route.snapshot.params.id,this.caty).subscribe(
       (res)=>
       {
@@ -76,4 +77,9 @@ catId!:number;
       }
     );
 }
+public response = {dbPath: ''};
+public uploadFinished = (event:any) => { 
+  this.response = event;
+}
+
 }

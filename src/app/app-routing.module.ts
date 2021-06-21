@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './Components/Authentication/login/login.component';
+import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 //import { CategoriesComponent } from './Components/dashboard/categories/categories.component';
@@ -16,7 +18,8 @@ import { SubCategoriesComponent } from './Components/dashboard/sub-categories/su
 import { UsersComponent } from './Components/dashboard/users/users.component';
 
 const routes: Routes = [
-
+  {path:'Register',component:RegisterComponent},
+  {path:'Login',component:LoginComponent},
   {path: 'categories', component: IndexComponent},
   {path: 'orders', component:OrderComponent},
   {path: 'products', component:AddProduComponent},

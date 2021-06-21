@@ -1,4 +1,4 @@
 export interface IuserLogin {
-    UserName:string,
+    Email:string,
     PasswordHash:string,
   }

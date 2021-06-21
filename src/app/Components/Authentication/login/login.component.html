@@ -33,7 +33,7 @@
                 <span>Souq and Amazon now use the same sign in credentials!</span>
                 <span>Sign in with your Amazon or Souq account</span>
                 <form id="singInForm"  [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="LoginUser(loginForm.value)">   
-                <div class="a-row a-spacing-base">
+                <!--<div class="a-row a-spacing-base">
                     <label for="ap_customer_name" class="a-form-label">
                          Your name
                        </label>
@@ -45,6 +45,23 @@
                      </div>
                   </div>
                  </div>
+                </div>-->
+                <div class="auth-require-fields-match-group"> 
+                    <div class="a-row a-spacing-base">
+                        <label for="ap_email" class="a-form-label">
+                                Email
+                        </label>
+                        <input type="email" maxlength="64" formControlName="Email"  id="ap_email" name="email" tabindex="3" class="a-input-text a-span12 auth-required-field auth-require-fields-match auth-require-reverify-on-change auth-contact-verification-request-info"/>
+                       <div id="auth-email-missing-alert" class="a-box a-alert-inline a-alert-inline-info auth-inlined-information-message a-spacing-top-mini" aria-live="assertive" role="alert">
+                         <div class="a-box-inner a-alert-container">
+                            <div class="a-alert-content">
+                             <em *ngIf="validateControl('Email') && hasError('Email','required')">
+                              <i class="a-icon a-icon-alert"></i>Email is required ,Please correct and try again.and must have @ . 
+                            </em>
+                             </div>
+                         </div>
+                      </div>
+                  </div>
                 </div>
 
                 <div class="a-row a-spacing-base">

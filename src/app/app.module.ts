@@ -55,7 +55,7 @@ import { LoginComponent } from './Components/Authentication/login/login.componen
     AddBrandComponent,
     UpdateBrandComponent,
     ModelComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     HttpClientModule,
@@ -64,7 +64,6 @@ import { LoginComponent } from './Components/Authentication/login/login.componen
     ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
-    FormGroup
     
     
   ],

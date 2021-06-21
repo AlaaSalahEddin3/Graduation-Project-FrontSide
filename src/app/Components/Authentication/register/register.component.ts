@@ -18,8 +18,10 @@ export class RegisterComponent implements OnInit
   errorMessage: string;
  showSuccess: boolean;
  showError: boolean;
+ Iuser:object;
   public registerForm: FormGroup;
-  constructor(private _authService: AuthenticationService,private _router:Router) { }
+  constructor(private _authService: AuthenticationService,private _router:Router) { 
+  }
 
   ngOnInit(): void 
   {
@@ -37,7 +39,7 @@ export class RegisterComponent implements OnInit
   public hasError = (controlName: string, errorName: string) => {
     return this.registerForm.controls[controlName].hasError(errorName)
   }
-  public registerUser = (registerFormValue: any) => {
+  public registerUser = (registerFormValue:any) => {
     this.showError = this.showSuccess = false;
     const formValues = { ...registerFormValue };
     const user: IuserRegister = {
@@ -46,14 +48,17 @@ export class RegisterComponent implements OnInit
       PasswordHash: formValues.PasswordHash,
       ConfirmPassword: formValues.ConfirmPassword
     };
-
     this._authService.RegisterUser(user)
-    .subscribe(_ =>
+    .subscribe(res =>
        {
         this.showSuccess=true;
         this.successMessage ='Successful registration'
-        console.log("Successful registration");
-        this._router.navigate(['/Login']);
+         console.log("Successful registration");
+         localStorage.setItem('user', JSON.stringify(res));
+         if(this.showSuccess==true)
+         {
+            this._router.navigate(['/Login']);
+         }
        },
      error => 
      {
@@ -61,5 +66,5 @@ export class RegisterComponent implements OnInit
       this.errorMessage = 'user name or password is not valid';
      })
     }
-
+    
 }

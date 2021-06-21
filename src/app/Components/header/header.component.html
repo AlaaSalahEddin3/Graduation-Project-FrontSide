@@ -54,9 +54,12 @@
 
                     </li>
                     <li>
-                        <a href="https://egypt.souq.com/eg-en/register.php" class="login_to_register">Create
+                        <a class="nav-link" routerLink="/Register" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Create
                             an Account</a>
+                        <!--<a href="https://egypt.souq.com/eg-en/register.php" class="login_to_register">Create
+                            an Account</a>-->
                     </li>
+                    
                     <li class="dodLink show-for-non-minimal">
                         <a href="https://deals.souq.com/eg-en/?utm_source=souq">Daily Deals</a>
                     </li>
@@ -75,7 +78,7 @@
                     </li>
                     
                     <li class="myAccountLink show-for-non-minimal">
-                        <a class="nav-link" routerLink="/Login">Dashboard</a>
+                        <a class="nav-link" routerLink="/dashboard">Dashboard</a>
                     </li>
 
                     <li id="Ship_To" class="region with-flyout" data-flyout-content=""><a href="javascript: void(0);"
@@ -140,65 +143,9 @@
             </div>
         </div>
 
-       <!--- <div class="mobile-menu show-for-small-only small-7 columns">
-            <div id="mini-cart_mobile" class="mini-cart mini-cart_mobile_aj with-flyout" data-xleft-items="0"
-                data-flyout-content="">
-                <a href="https://egypt.souq.com/eg-en/shopping_cart.php" id="miniCartClose" class=""
-                    data-translate="Cart" data-options="align:left" data-flyout="cartDrop_mobile"><i
-                        class="fi-cart-new"></i> <span
-                        class="cart-item-count-aj show-mini-cart-aj cart-icon-item-count">0</span></a>
-                <div id="cartDrop_mobile" class="cart-dropdown flyout  cartDropItem" data-dropdown-content=""></div>
-            </div>
+     
 
-            <ul class="clearfix">
-                <li class="mobile-search-button ">
-                    <i class="fi-magnifying-glass"></i>
-                </li>
-                <li id="login_user_name_mobile" class="login-user-name with-flyout user_login" data-flyout-content="">
-
-
-                    <a id="userNameField_mobile" href="https://egypt.souq.com/eg-en/login.php"
-                        class="userNameField truncate" data-options="align:bottom" data-flyout="userName_mobile"><span
-                            class="show-for-large">Hello. </span>Log
-                        In</a>
-                    <div class="flyout user-menu">
-                        <ul id="userName_mobile" class="filter-group">
-                            <li class="login-li row loginRemoval">
-                                <div class="small-12 columns">
-                                    <a href="https://egypt.souq.com/eg-en/login.php" class="login-button" local="">Log
-                                        In</a>
-                                </div>
-                                <div class="to-sign-up small-12 columns">
-                                    <span class="register-now">Don't have an account? <a
-                                            href="https://egypt.souq.com/eg-en/register.php"
-                                            class="login_to_register">Sign Up</a> </span>
-                                </div>
-
-                            </li>
-
-
-
-                            <li><a href="https://egypt.souq.com/eg-en/account.php" class="change-if-seller">My
-                                    Orders</a> </li>
-                            <li><a href="https://egypt.souq.com/eg-en/account_addresses.php">My
-                                    Addresses</a> </li>
-                            <li><a href="https://egypt.souq.com/eg-en/account_lists.php">Wish Lists</a>
-                            </li>
-                            <li class="hide-for-large"><a href="https://egypt.souq.com/eg-en/buy_it_again.php">Buy
-                                    it
-                                    Again</a> </li>
-                            <li><a href="https://egypt.souq.com/eg-en/account_settings.php">Account
-                                    Settings</a> </li>
-                            <li><a href="https://egypt.souq.com/eg-en/account_overview.php">Account
-                                    Summary</a> </li>
-
-
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>-->
-
+            
         <div class="small-12 medium-6 large-8 columns extra search-wrapper clearPadding-h-small " id="search-mobile">
             <div class="header-search">
                 <form action="https://egypt.souq.com/eg-en/search_results.php" id="searchForm" method="get"><input
@@ -233,17 +180,15 @@
                 </div>
             
             </div>
-            <div *ngIf='isUserAuthenticated'  class="show-for-medium opposite-direction with-flyout user_login login-user-name text-center has-tip">
-                <a  class="nav-link" href="#" (click)="logout()"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Log out</a>
-            </div>
-            <div id="login_user_name_topbar" *ngIf='!isUserAuthenticated'
+            <div id="login_user_name_topbar" 
                 class="show-for-medium opposite-direction with-flyout user_login login-user-name text-center has-tip">
                 <label id="userNameLoading"
-                    class="calling-label loading-dots-container"><span>.</span><span>.</span><span>.</span></label>
+                    class="calling-label loading-dots-container">
+                    <span>.</span><span>.</span><span>.</span>
+                </label>
+                <a class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf='!isUserAuthenticated' ><span class="show-for-large" >Hello. </span>Log In</a>
+                <a  *ngIf='isUserAuthenticated' class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" ><span class="show-for-large" >Hello.</span>{{name}}</a>
 
-                <!--<a id="userNameField_topbar" href="https://egypt.souq.com/eg-en/login.php"
-                    class="truncate userNameField">--> 
-                <a class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><span class="show-for-large">Hello. </span>Log In</a>
                 <div class="flyout user-menu hidden">
                     <!-- Buy it again box -->
                     <input type="hidden" name="crtlnk" class="crtlnk" value="">
@@ -279,13 +224,13 @@
                         </div>
                     </div>
                     <ul id="userName_topbar" class="filter-group" >
-                        <li class="login-li row loginRemoval">
+                        <li class="login-li row loginRemoval" *ngIf='!isUserAuthenticated' >
                             <div class="small-12 columns">
                                 <a class="login-button" routerLink="/Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Log in</a>
                                <!-- <a href="https://egypt.souq.com/eg-en/login.php" class="login-button" local="">Log
                                     In</a>-->
                             </div>
-                            <div class="to-sign-up small-12 columns">
+                            <div class="to-sign-up small-12 columns" >
                                 <span class="register-now">Don't have an account?
                                     <a class="nav-link" routerLink="/Register" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sign Up</a>
                                     <!--<a  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
@@ -299,19 +244,22 @@
 
                         <li><a href="https://egypt.souq.com/eg-en/account.php" class="change-if-seller">My
                                 Orders</a> </li>
-                        <li><a href="https://egypt.souq.com/eg-en/account_addresses.php">My
-                                Addresses</a> </li>
+                       <!-- <li><a href="https://egypt.souq.com/eg-en/account_addresses.php">My
+                                Addresses</a> </li>-->
                         <li><a href="https://egypt.souq.com/eg-en/account_lists.php">Wish Lists</a>
                         </li>
                         <li class="hide-for-large"><a href="https://egypt.souq.com/eg-en/buy_it_again.php">Buy it
                                 Again</a>
                         </li>
-                        <li><a href="https://egypt.souq.com/eg-en/account_settings.php">Account
-                                Settings</a> </li>
-                        <li><a href="https://egypt.souq.com/eg-en/account_overview.php">Account
-                                Summary</a> </li>
-
-                    </ul>
+                        <!--<li><a href="https://egypt.souq.com/eg-en/account_settings.php">Account
+                                Settings</a> </li>-->
+                        <!--<li>
+                            <a href="https://egypt.souq.com/eg-en/account_overview.php">Account
+                                Summary</a> </li>-->
+                        <li *ngIf='isUserAuthenticated'>         
+                                <a  class="nav-link" href="#" (click)="logout()"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Log out</a>
+                             </li>
+                            </ul>
                        
                 </div>
                 

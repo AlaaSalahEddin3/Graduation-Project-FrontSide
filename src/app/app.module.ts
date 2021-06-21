@@ -16,7 +16,7 @@ import { OrderComponent } from './Components/dashboard/order/order.component';
 import { IndexComponent } from './Components/dashboard/Categorys/index/index.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 //import { ConfirmModalComponent } from './reusedComponent/confirm-modal/confirm-modal.component';
 import { SubCategoriesComponent } from './Components/dashboard/sub-categories/sub-categories.component';
@@ -28,8 +28,7 @@ import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-br
 import { UpdateBrandComponent } from './Components/dashboard/Brand/update-brand/update-brand.component';
 import { ModelComponent } from './Components/dashboard/Model/model/model.component';
 import { HomeComponent } from './Components/Client/home/home.component';
-import { RegisterComponent } from './Components/Authentication/register/register.component';
-import { LoginComponent } from './Components/Authentication/login/login.component';
+import { ShowProductComponent } from './Components/Client/home/show-product/show-product.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,6 @@ import { LoginComponent } from './Components/Authentication/login/login.componen
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    RegisterComponent,
-     LoginComponent,
   //  CategoriesComponent,
  
     //ProductComponent,
@@ -49,13 +46,14 @@ import { LoginComponent } from './Components/Authentication/login/login.componen
     AddCategoryComponent,
     UpdateCategoryComponent,
     SubCategoriesComponent,
- 
+
     UploadComponent,
     AddProduComponent,
     AddBrandComponent,
     UpdateBrandComponent,
     ModelComponent,
     HomeComponent,
+    ShowProductComponent
   ],
   imports: [
     HttpClientModule,
@@ -63,7 +61,7 @@ import { LoginComponent } from './Components/Authentication/login/login.componen
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
     
     
   ],

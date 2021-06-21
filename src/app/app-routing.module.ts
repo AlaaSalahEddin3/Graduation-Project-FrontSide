@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ShopAllCategoriesComponent } from './Components/Client/shop-all-categories/shop-all-categories.component';
+import { ShopSubCategoriesComponent } from './Components/Client/shop-sub-categories/shop-sub-categories.component';
 import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 //import { CategoriesComponent } from './Components/dashboard/categories/categories.component';
@@ -26,7 +28,10 @@ const routes: Routes = [
 {path:'brans',component:AddBrandComponent},
 {path:'models',component:ModelComponent},
 {path:'subcategories',component:SubCategoriesComponent},
-{path:'dashboard',component:DashboardComponent}
+{path:'dashboard',component:DashboardComponent},
+{path:'allcategories',component:ShopAllCategoriesComponent},
+{path:'Getsubcategories/:id',component:ShopSubCategoriesComponent}
+//{path:'allcategories',component}
 ];
 
 @NgModule({

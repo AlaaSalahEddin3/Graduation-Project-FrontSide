@@ -3,4 +3,5 @@ export class SubCategory {
     name!:string;
    description!:string;
    catogeryId!:any;
+   image!:string
 }

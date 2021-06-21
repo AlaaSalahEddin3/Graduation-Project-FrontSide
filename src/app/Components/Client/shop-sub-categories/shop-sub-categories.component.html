@@ -1,0 +1,12 @@
+<div class="rowpic">
+    <img src="assets/images/bclothe.jpg" style="width: 100%;height: 400px;">
+
+</div>
+
+ <div class="subcategories" >
+      <div class="column-img" *ngFor="let subcategory of clonedSubCategories">
+          <a><img style="width: 275px; height: 200px;"  [src]="createImgPath(subcategory.image)"></a>
+          <span class="subCategoryName">{{subcategory.name}}</span>
+
+      </div>
+  </div> 

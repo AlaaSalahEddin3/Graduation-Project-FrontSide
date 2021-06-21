@@ -28,6 +28,9 @@ import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-br
 import { UpdateBrandComponent } from './Components/dashboard/Brand/update-brand/update-brand.component';
 import { ModelComponent } from './Components/dashboard/Model/model/model.component';
 import { HomeComponent } from './Components/Client/home/home.component';
+import { ShopAllCategoriesComponent } from './Components/Client/shop-all-categories/shop-all-categories.component';
+import { ShopSubCategoriesComponent } from './Components/Client/shop-sub-categories/shop-sub-categories.component';
+import { QuickViewComponent } from './Components/Client/quick-view/quick-view.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { HomeComponent } from './Components/Client/home/home.component';
     AddBrandComponent,
     UpdateBrandComponent,
     ModelComponent,
-    HomeComponent
+    HomeComponent,
+    ShopAllCategoriesComponent,
+    ShopSubCategoriesComponent,
+    QuickViewComponent
   ],
   imports: [
     HttpClientModule,

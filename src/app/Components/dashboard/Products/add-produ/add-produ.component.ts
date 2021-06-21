@@ -133,7 +133,7 @@ this.productservice.getProductById(id).subscribe((data)=>{
       })
   }
   onBrandSelected(id:any){
-    alert(id);
+  //  alert(id);
     this.modelservice.returnRlatedModels(id).subscribe((data)=>{
       this.allModel=data;
     },(error)=>{alert(error)})

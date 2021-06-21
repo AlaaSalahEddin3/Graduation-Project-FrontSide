@@ -8,6 +8,7 @@ import { SubCategory } from 'src/app/Models/sub-category';
 import { CategoryService } from 'src/app/Services/category.service';
 //import { ConfirmModalComponent } from 'src/app/reusedComponent/confirm-modal/confirm-modal.component';
 import { SubcategoryService } from 'src/app/Services/subcategory.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sub-categories',
@@ -30,7 +31,7 @@ export class SubCategoriesComponent implements OnInit {
   currentPageNumber:number = 1;
   numberOfPages!:number; // categoriesCount / pageSize
 
-
+  public response = {dbPath: ''};
  
   get formFields() { return this.subCategoryForm.controls; }
   constructor(private _SubcategoryService:SubcategoryService,
@@ -87,7 +88,8 @@ add()
     id:0,
     name:this.formFields.name.value,
     description:this.formFields.description.value,
-    catogeryId:this.formFields.category.value
+    catogeryId:this.formFields.category.value,
+    image:this.response.dbPath
   }
   this._SubcategoryService.addCategory(sub).subscribe(()=>{
     alert("added");
@@ -146,7 +148,9 @@ let sub:SubCategory={
   id:this.subId,
   name:this.formFields.name.value,
   description:this.formFields.description.value,
- catogeryId:this.formFields.category.value
+ catogeryId:this.formFields.category.value,
+ image:this.response.dbPath
+
 }
   }
   onAddOrUpdate()
@@ -157,5 +161,11 @@ let sub:SubCategory={
     {
       this.updateSubcategory()
     }
+  }
+  public uploadFinished = (event:any) => { 
+    this.response = event;
+  }
+  public createImgPath = (serverPath: string) => {
+    return `${environment.apiUrl}/${serverPath}`;
   }
 }

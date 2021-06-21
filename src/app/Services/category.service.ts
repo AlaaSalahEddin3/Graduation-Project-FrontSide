@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable ,throwError } from 'rxjs';
 import { Category } from '../Models/category';
 import { environment } from 'src/environments/environment';
+import { CustomCategories } from '../Models/custom-categories';
 
 
 @Injectable({
@@ -27,6 +28,14 @@ export class CategoryService {
     returnAllCategory():Observable<Category[]>
     {
        return this.http.get<Category[]>(this.url).pipe(catchError((err)=>
+        {
+
+          return throwError(err.message ||"Internal Server error contact site adminstarator");
+        }));
+    }
+    getCustomCategory():Observable<CustomCategories[]>
+    {
+       return this.http.get<CustomCategories[]>(this.url).pipe(catchError((err)=>
         {
 
           return throwError(err.message ||"Internal Server error contact site adminstarator");

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Components/Authentication/login/login.component';
 import { RegisterComponent } from './Components/Authentication/register/register.component';
+import { ShowProductComponent } from './Components/Client/show-product/show-product.component';
+import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
 import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 //import { CategoriesComponent } from './Components/dashboard/categories/categories.component';
@@ -29,7 +31,10 @@ const routes: Routes = [
 {path:'brans',component:AddBrandComponent},
 {path:'models',component:ModelComponent},
 {path:'subcategories',component:SubCategoriesComponent},
-{path:'dashboard',component:DashboardComponent}
+{path:'dashboard',component:DashboardComponent},
+{path:'show',component:ShowProductComponent},
+{path:'wishList',component:WishListComponent}
+
 ];
 
 @NgModule({

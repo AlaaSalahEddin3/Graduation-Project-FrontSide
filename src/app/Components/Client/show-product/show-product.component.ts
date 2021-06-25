@@ -9,11 +9,13 @@ import { Model } from 'src/app/Models/model';
 import { ProducVM } from 'src/app/Models/produc-vm';
 import { Product } from 'src/app/Models/product';
 import { SubCategory } from 'src/app/Models/sub-category';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 import { BrandService } from 'src/app/Services/brand.service';
 import { CategoryService } from 'src/app/Services/category.service';
 import { ModelService } from 'src/app/Services/model.service';
 import { ProductService } from 'src/app/Services/product.service';
 import { SubcategoryService } from 'src/app/Services/subcategory.service';
+import { WishlistService } from 'src/app/Services/wish-list.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -28,13 +30,17 @@ errorMsg!:string;
 allModel!:Model[];
 prouctId!:number;
 AllBrand! :Brand[];
-
-  constructor(private _router:Router, private fb:FormBuilder,private productservice:ProductService,private categoryService:CategoryService,private subcategoryservice:SubcategoryService,private modelservice:ModelService,private brandService:BrandService) { }
+userID:any;
+conunter:number=0;
+  constructor(private _router:Router, private _wishlistService: WishlistService, private fb:FormBuilder, private _authenticationService: AuthenticationService,private productservice:ProductService,private categoryService:CategoryService,private subcategoryservice:SubcategoryService,private modelservice:ModelService,private brandService:BrandService) { }
 
   ngOnInit(): void {
     this.returnAllProducts();
     this.returnAllBrands();
     this.returnallcategory();
+
+    this.userID=this._authenticationService.getUserId();
+        console.log(this.userID);
   }
   returnAllProducts()
   {
@@ -82,5 +88,24 @@ AllBrand! :Brand[];
           //  this.loading = false;
         });
   
+}
+addProductToWishlist(productId:number) {
+  if(this._authenticationService.isLoggedIn())
+  {
+    this._wishlistService.addProductToWishlist(productId).subscribe(
+      data => {
+              this.conunter++;
+              localStorage.setItem('wishListItem',JSON.stringify(this.conunter));
+        alert("added to wishlist")
+      },
+      error => {
+        alert(error);
+      }
+    )
+  }
+  else {
+   // alert("Login to add product to wishlist");
+    this._router.navigate(['/Login']);
+  }
 }
 }

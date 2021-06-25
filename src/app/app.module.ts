@@ -31,6 +31,7 @@ import { HomeComponent } from './Components/Client/home/home.component';
 import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
 import { ShowProductComponent } from './Components/Client/show-product/show-product.component';
+import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ShowProductComponent } from './Components/Client/show-product/show-prod
     UpdateBrandComponent,
     ModelComponent,
     HomeComponent,
+    WishListComponent,
   ],
   imports: [
     HttpClientModule,

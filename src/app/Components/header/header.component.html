@@ -186,8 +186,8 @@
                     class="calling-label loading-dots-container">
                     <span>.</span><span>.</span><span>.</span>
                 </label>
-                <a class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf='!isUserAuthenticated' ><span class="show-for-large" >Hello. </span>Log In</a>
-                <a  *ngIf='isUserAuthenticated' class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" ><span class="show-for-large" >Hello.</span>{{name}}</a>
+                <a class="truncate userNameField" id="userNameField_topbar" routerLink="Login" *ngIf="!isUserLoggedIn()"><span class="show-for-large" >Hello. </span>Log In</a>
+                <a  *ngIf="isUserLoggedIn()" class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" ><span class="show-for-large" >Hello.</span>{{userName}}</a>
 
                 <div class="flyout user-menu hidden">
                     <!-- Buy it again box -->
@@ -224,7 +224,7 @@
                         </div>
                     </div>
                     <ul id="userName_topbar" class="filter-group" >
-                        <li class="login-li row loginRemoval" *ngIf='!isUserAuthenticated' >
+                        <li class="login-li row loginRemoval" *ngIf="!isUserLoggedIn()">
                             <div class="small-12 columns">
                                 <a class="login-button" routerLink="/Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Log in</a>
                                <!-- <a href="https://egypt.souq.com/eg-en/login.php" class="login-button" local="">Log
@@ -246,7 +246,7 @@
                                 Orders</a> </li>
                        <!-- <li><a href="https://egypt.souq.com/eg-en/account_addresses.php">My
                                 Addresses</a> </li>-->
-                        <li><a href="https://egypt.souq.com/eg-en/account_lists.php">Wish Lists</a>
+                        <li><a class="nav-link" routerLink="/wishList" *ngIf="isUserLoggedIn()">Wish Lists</a>
                         </li>
                         <li class="hide-for-large"><a href="https://egypt.souq.com/eg-en/buy_it_again.php">Buy it
                                 Again</a>
@@ -256,7 +256,7 @@
                         <!--<li>
                             <a href="https://egypt.souq.com/eg-en/account_overview.php">Account
                                 Summary</a> </li>-->
-                        <li *ngIf='isUserAuthenticated'>         
+                        <li *ngIf="isUserLoggedIn()">         
                                 <a  class="nav-link" href="#" (click)="logout()"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Log out</a>
                              </li>
                             </ul>

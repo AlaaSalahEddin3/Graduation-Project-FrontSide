@@ -186,6 +186,7 @@
                     <li class="free-shipping-row">
             <div class="free-shipping ">
                             Eligible for <span><b>FREE Shipping</b></span>
+                            <i class="fas fa-heart fa-lg" (click)="addProductToWishlist(item.id)"></i>
                 </div>
                 <!--  -->
             <div class="flag-block">
@@ -202,7 +203,11 @@
                                         Add to cart
                                     &nbsp;<i class="inline fi-qty-cart"></i>
                                 </button>
-                                
+                                <button (click)="addProductToWishlist(item.id)" class="green-button sk-bg-clr2 sk-bg-clr2-eff button block expand" data-addtocart='' data-ajaxcart-btn data-track-target="" data-track-name="ajaxAddToCart" data-track-event="event22">
+                                    Add to wishList
+                                &nbsp;<i class="fas fa-heart fa-lg" ></i>
+                            </button>  
+                               
                                 <div class="ajaxCart fmcg-quanitiy hide" data-ajaxcart=""  data-unit-id="1163900570" data-item-img="https://cf5.s3.souqcdn.com/item/2020/02/04/94/88/81/85/item_L_94888185_8a4bcbb932141.jpg" data-item-title="Abu Kass Indian Mazza Basmati Rice - 2 kg">
                                     <button class="white button block column small-3" data-ajaxcart-qty="minus" data-track-target="" data-track-name="ajaxAddToCart" data-track-event="event61">
                                         <i class="inline fi-minus medium"></i>
@@ -214,6 +219,7 @@
                                 </div>
                                 <small class="error-note hide" data-ajaxcart-error></small>
                     </li>
+                
                 </ul>
             <!-- </div> -->
             </div>

@@ -14,14 +14,14 @@ import { MockExecutor } from 'protractor/built/driverProviders';
 export class ModelService {
 
   constructor(private http:HttpClient) { }
-  //url='http://localhost:56568/api/controller';
-  url=environment.apiUrl+'/api/Model';
+  //url='http://localhost:56568/api/Model';
+    url=environment.apiUrl+'/api/Model';
   
   addModel(model:Model): Observable<any> {
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(model);
 
-    return this.http.post<Category>(this.url, body,{headers:headers})
+    return this.http.post<Category>(this.url,body,{headers:headers})
 }
 
     returnAllModels():Observable<Model[]>

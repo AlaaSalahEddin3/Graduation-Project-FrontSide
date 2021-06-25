@@ -33,7 +33,7 @@ export class ProductService {
   }
   addNewProduct(newProduct: Product): Observable<Product> {
     console.log(newProduct);
-    let url = `${environment.apiUrl}/api/product`;
+    let url = `${environment.apiUrl}/api/Product`;
     return this._http.post<Product>(url, newProduct)
       .pipe(catchError((err) => {
         return throwError(err.message || "Internal Server error contact site adminstarator");

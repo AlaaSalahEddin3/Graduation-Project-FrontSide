@@ -14,33 +14,23 @@ import { RegisterComponent } from '../Authentication/register/register.component
 })
 export class HeaderComponent implements OnInit {
 
-  public isUserAuthenticated:boolean;
-  user:any;
+ public isLoggedIn:boolean = false;
+  userName:any;
    Iuser:object;
    name:string;
-   currentDate=new Date().getHours(); 
-   token:any;
-   exp:string;
-   lasttime:number;
-   expire:string;
-  @ViewChild(RegisterComponent) register:RegisterComponent;
   constructor(private _authService:AuthenticationService,private _router: Router)
    { 
    
    }
   ngOnInit(): void 
   {
-    
-   // console.log(this.currentDate);
-
-       //this.token=localStorage.getItem('token');
-       //let date=JSON.parse(this.token);
-      // this.exp=date.expiration;
-      //  this.expire=this.exp.slice(11,13)
-       // this.lasttime=this.expire- this.currentDate;
-       //console.log(this.exp.slice(11,13));
-      // console.log(typeof(this.exp));
-    if(localStorage.getItem("logged")!=null&&localStorage.getItem("logged")=="true")
+    this.userName= this._authService.getUsername();
+    console.log(this.userName);
+    //this. isUserLoggedIn()
+   // this.user=localStorage.getItem('user');
+    //let Iuser=JSON.parse(this.user);
+   //this.name=Iuser.userName; 
+   /* if(localStorage.getItem("logged")!=null&&localStorage.getItem("logged")=="true")
     {
        this.isUserAuthenticated=true;
        this.user=localStorage.getItem('user');
@@ -50,14 +40,18 @@ export class HeaderComponent implements OnInit {
     else if(localStorage.getItem("logged")!=null&&localStorage.getItem("logged")=="false" )
     {
       this.isUserAuthenticated=false;
-    }
+    }*/
    
   }
   public logout = () => {
     this._authService.logout();
-    localStorage.setItem("logged","false");
-    this.isUserAuthenticated=false;
-    this._router.navigate(["/"]);
+   // localStorage.setItem("logged","false");
+    //this.isUserAuthenticated=false;
+   // this._router.navigate(["/"]);
   }
+  public isUserLoggedIn():boolean{
+    return this._authService.isLoggedIn();
+  }
+
  
 }

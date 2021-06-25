@@ -172,7 +172,9 @@ public uploadFinished = (event:any) => {
   this.response = event;
 }
 public createImgPath = (serverPath: string) => {
+  console.log(`${environment.apiUrl}/${serverPath}`);
   return `${environment.apiUrl}/${serverPath}`;
+  
 }
 action!:string
   flag!: boolean

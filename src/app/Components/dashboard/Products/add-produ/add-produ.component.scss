@@ -12,11 +12,15 @@ input[type=text], select {
 
   textarea
   {
-      font-size:20pt ;
-      width: 50%;
+      font-size:13px ;
+  
   }
   input[type=submit]:hover {
     background-color: #45a049;
+  }
+  label{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
   }
 
   div {
@@ -129,4 +133,8 @@ height: 100%;
 {
     margin-left: 0px;
     margin-top: 0px;
+}
+select
+{
+  height: fit-content;
 }

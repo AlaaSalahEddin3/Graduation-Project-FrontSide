@@ -96,7 +96,7 @@ this.productservice.getProductById(id).subscribe((data)=>{
     .pipe(first())
     .subscribe(
         data => {
-          alert("Succeeded");
+          console.log("Succeeded");
           this.allCategories=data;
           //  this._router.navigate([this._router.url]);
         },
@@ -113,7 +113,7 @@ this.productservice.getProductById(id).subscribe((data)=>{
     .pipe(first())
     .subscribe(
         data => {
-          alert("Succeeded");
+          console.log("Succeeded");
           this.allbrands=data;
           //  this._router.navigate([this._router.url]);
         },
@@ -133,7 +133,7 @@ this.productservice.getProductById(id).subscribe((data)=>{
       })
   }
   onBrandSelected(id:any){
-    alert(id);
+  //  alert(id);
     this.modelservice.returnRlatedModels(id).subscribe((data)=>{
       this.allModel=data;
     },(error)=>{alert(error)})
@@ -172,9 +172,7 @@ public uploadFinished = (event:any) => {
   this.response = event;
 }
 public createImgPath = (serverPath: string) => {
-  console.log(`${environment.apiUrl}/${serverPath}`);
   return `${environment.apiUrl}/${serverPath}`;
-  
 }
 action!:string
   flag!: boolean

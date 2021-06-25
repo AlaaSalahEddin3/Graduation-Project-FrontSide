@@ -1,0 +1,16 @@
+<div class=" row" >
+    <div class="all" > <a (click)="viewAllCategories()">All Categories</a></div>
+    
+    <div class="column" *ngFor="let category of clonedCategories"><a (click)="getSubs(category.id)">{{category.name}}</a></div>
+
+</div>
+
+    
+ <!--  <div class="subcategories" *ngIf="subs">
+      <div class="column-img" *ngFor="let subcategory of clonedSubCategories">
+          <a><img style="width: 275px; height: 200px;"  [src]="createImgPath(subcategory.image)"></a>
+          <span class="subCategoryName">{{subcategory.name}}</span>
+
+      </div>
+  </div> -->
+

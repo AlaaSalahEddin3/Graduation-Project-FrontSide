@@ -5,6 +5,7 @@ import { Category } from 'src/app/Models/category';
 import { CategoryService } from 'src/app/Services/category.service';
 
 import {HttpClientModule} from '@angular/common/http' 
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -55,5 +56,8 @@ export class IndexComponent implements OnInit {
 Reset() {  
   this.addCategoryForm.reset();  
  } 
+ public createImgPath = (serverPath: string) => {
+  return `${environment.apiUrl}/${serverPath}`;
+}
 
 }

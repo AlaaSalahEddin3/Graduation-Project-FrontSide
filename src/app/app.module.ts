@@ -16,7 +16,7 @@ import { OrderComponent } from './Components/dashboard/order/order.component';
 import { IndexComponent } from './Components/dashboard/Categorys/index/index.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 //import { ConfirmModalComponent } from './reusedComponent/confirm-modal/confirm-modal.component';
 import { SubCategoriesComponent } from './Components/dashboard/sub-categories/sub-categories.component';
@@ -28,9 +28,13 @@ import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-br
 import { UpdateBrandComponent } from './Components/dashboard/Brand/update-brand/update-brand.component';
 import { ModelComponent } from './Components/dashboard/Model/model/model.component';
 import { HomeComponent } from './Components/Client/home/home.component';
-import { RegisterComponent } from './Components/Authentication/register/register.component';
+import { ShopAllCategoriesComponent } from './Components/Client/shop-all-categories/shop-all-categories.component';
+import { ShopSubCategoriesComponent } from './Components/Client/shop-sub-categories/shop-sub-categories.component';
+import { QuickViewComponent } from './Components/Client/quick-view/quick-view.component';
+import { ShowProductComponent } from './Components/Client/home/show-product/show-product.component';
+import { UserCartComponent } from './Components/Client/user-cart/user-cart.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
-import { ShowProductComponent } from './Components/Client/show-product/show-product.component';
+import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
 
 @NgModule({
@@ -39,8 +43,6 @@ import { WishListComponent } from './Components/Client/wish-list/wish-list.compo
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    RegisterComponent,
-     LoginComponent,
   //  CategoriesComponent,
  
     //ProductComponent,
@@ -51,14 +53,21 @@ import { WishListComponent } from './Components/Client/wish-list/wish-list.compo
     AddCategoryComponent,
     UpdateCategoryComponent,
     SubCategoriesComponent,
-    ShowProductComponent,
+
     UploadComponent,
     AddProduComponent,
     AddBrandComponent,
     UpdateBrandComponent,
     ModelComponent,
     HomeComponent,
-    WishListComponent,
+    ShopAllCategoriesComponent,
+    ShopSubCategoriesComponent,
+    QuickViewComponent,
+    ShowProductComponent,
+    UserCartComponent,
+    LoginComponent,
+    RegisterComponent,
+    WishListComponent
   ],
   imports: [
     HttpClientModule,
@@ -66,7 +75,7 @@ import { WishListComponent } from './Components/Client/wish-list/wish-list.compo
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
     
     
   ],

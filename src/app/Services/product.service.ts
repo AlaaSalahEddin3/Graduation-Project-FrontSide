@@ -25,6 +25,12 @@ export class ProductService {
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
   }
+  getRelatedProducts(id: number): Observable<ProducVM[]> {
+    let url = `${environment.apiUrl}/api/Product/GetAllWith/${id}`;
+    return this._http.get<ProducVM[]>(url).pipe(catchError((err) => {
+      return throwError(err.message || "Internal Server error contact site adminstarator");
+    }));
+  }
   getProductById(id: number): Observable<ProducVM> {
     let url = `${environment.apiUrl}/api/product/${id}`;
     return this._http.get<ProducVM>(url).pipe(catchError((err) => {
@@ -33,7 +39,7 @@ export class ProductService {
   }
   addNewProduct(newProduct: Product): Observable<Product> {
     console.log(newProduct);
-    let url = `${environment.apiUrl}/api/Product`;
+    let url = `${environment.apiUrl}/api/product`;
     return this._http.post<Product>(url, newProduct)
       .pipe(catchError((err) => {
         return throwError(err.message || "Internal Server error contact site adminstarator");

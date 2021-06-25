@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ShopAllCategoriesComponent } from './Components/Client/shop-all-categories/shop-all-categories.component';
+import { ShopSubCategoriesComponent } from './Components/Client/shop-sub-categories/shop-sub-categories.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
 import { RegisterComponent } from './Components/Authentication/register/register.component';
-import { ShowProductComponent } from './Components/Client/show-product/show-product.component';
-import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
 import { AddBrandComponent } from './Components/dashboard/Brand/add-brand/add-brand.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 //import { CategoriesComponent } from './Components/dashboard/categories/categories.component';
@@ -18,6 +18,12 @@ import { SubCategoriesComponent } from './Components/dashboard/sub-categories/su
 //import { SubCategoryComponent } from './Components/dashboard/sub-category/sub-category.component';
 //import { ShowComponent } from './Components/dashboard/SubCategory/show/show.component';
 import { UsersComponent } from './Components/dashboard/users/users.component';
+import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
+import { ShowProductComponent } from './Components/Client/home/show-product/show-product.component';
+import { UserCartComponent } from './Components/Client/user-cart/user-cart.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
+import { HomeComponent } from './Components/Client/home/home.component';
 
 const routes: Routes = [
   {path:'Register',component:RegisterComponent},
@@ -32,9 +38,17 @@ const routes: Routes = [
 {path:'models',component:ModelComponent},
 {path:'subcategories',component:SubCategoriesComponent},
 {path:'dashboard',component:DashboardComponent},
-{path:'show',component:ShowProductComponent},
-{path:'wishList',component:WishListComponent}
-
+{path:'allcategories',component:ShopAllCategoriesComponent},
+{path:'Getsubcategories/:id',component:ShopSubCategoriesComponent},
+{path:'CategorysUPdate/:id',component: UpdateCategoryComponent },
+{path:'relatedproducts/:id',component:ShowProductComponent},
+{path:'head',component:HeaderComponent},
+{
+  path:'cart',component:UserCartComponent
+},
+{path:'wishList',component:WishListComponent},
+{path:'home',component:HomeComponent}
+//{path:'allcategories',component}
 ];
 
 @NgModule({

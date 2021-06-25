@@ -6,6 +6,7 @@ import { IuserLogin } from '../Models/IuserLogin';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -44,18 +45,12 @@ export class AuthenticationService
      } 
      
      private setSession(Result:any) {
-      //const expiresAt = moment().add(authResult.expiresIn,'second');
+  
       const expires = Result.expiration;
       localStorage.setItem('token', Result.token);
-      localStorage.setItem("expires_at", JSON.stringify(expires));//.valueOf()) );
+      localStorage.setItem("expires_at", JSON.stringify(expires));
   } 
-    
- public logout = () => 
- {
-        localStorage.removeItem("token");
-        localStorage.removeItem("expires_at");
-       // this.router.navigate(['/Login']);
-  }
+
   
  public isLoggedIn() 
  {
@@ -106,18 +101,37 @@ export class AuthenticationService
         }
         return null;
     }
-    getRole(){
-      if(localStorage.getItem('token')){
-         this.token = localStorage.getItem('token');
-          let jwtData =this.token.split('.')[1]
-          let decodedJwtJsonData = window.atob(jwtData)
-          let decodedJwtData = JSON.parse(decodedJwtJsonData)
-          this.Role =decodedJwtData['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-          console.log(this.Role);
-          return this.Role;
-      }
-      return null;
-  }
+    
+
+
+    userList:User[]
+    currentUser:User
+    public logout = () => {
+      this.saveUserCartFirst()
+       localStorage.removeItem("token");
+       localStorage.removeItem('current_user');
+       localStorage.removeItem("expires_at");
+       // this.router.navigate(['/Login']);
+   }
+saveUserCartFirst()
+{
+ this.userList=JSON.parse(localStorage.getItem('users')||'');
+     console.log('the user are '+this.userList)
+    // console.log(login.email)
+    alert(this.userList.length)
+    this.currentUser = JSON.parse(localStorage.getItem('current_user') || '{}')
+     for(var i=0;i<this.userList.length;i++)
+     {
+       if(this.userList[i].email==this.currentUser.email)
+       {
+         alert('founded');
+           this.userList[i].products=this.currentUser.products
+         console.log(this.userList[i])
+   localStorage.setItem('users',JSON.stringify(this.userList))
+         break;
+       }
+     }
+}
 }
 
 

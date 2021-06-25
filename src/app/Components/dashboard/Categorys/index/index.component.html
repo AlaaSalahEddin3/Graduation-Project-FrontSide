@@ -3,13 +3,14 @@
 
 <div class=" container " style="margin-left: 220px;justify-content: center;padding-top: 1%;">
 
-    <a  class="btn btn-danger" routerLink="/AddCategory" >Add New Category</a>
+    <a  class="button" routerLink="/AddCategory" >Add New Category</a>
     <table id="CategoriesTable" class="table table-hover table-striped" style="border-collapse:collapse; font-size:20px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
         <thead>
             <tr>
                 <th>Category ID</th>
                 <th>Category Name</th>
                 <th>Category  Description</th>
+                <th>image</th>
                 <th>Modification</th>
                
     
@@ -22,6 +23,7 @@
                 <td> {{cat.id}}</td>  
                 <td> {{cat.name}}</td> 
                 <td> {{cat.description}}</td>  
+                <td ><img [src]="createImgPath(cat.image)"></td>
             <td>
                         <a href="" class="btn btn-success" [routerLink]="['/CategorysUPdate/', cat.id]">Update </a>&nbsp;&nbsp;&nbsp;
                         <button class="btn btn-danger"  (click)="deleteCategory(cat.id)"  data->Delete</button>

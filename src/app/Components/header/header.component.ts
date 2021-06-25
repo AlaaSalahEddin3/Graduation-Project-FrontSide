@@ -3,9 +3,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Data, Router } from '@angular/router';
 import { combineAll } from 'rxjs/operators';
 import { IuserRegister } from 'src/app/Models/IuserRegister';
+import { User } from 'src/app/Models/user';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
-import { LoginComponent } from '../Authentication/login/login.component';
-import { RegisterComponent } from '../Authentication/register/register.component';
+//import { LoginComponent } from '../Authentication/login/login.component';
+//import { RegisterComponent } from '../Authentication/register/register.component';
 
 @Component({
   selector: 'app-header',
@@ -14,44 +15,33 @@ import { RegisterComponent } from '../Authentication/register/register.component
 })
 export class HeaderComponent implements OnInit {
 
- public isLoggedIn:boolean = false;
-  userName:any;
-   Iuser:object;
-   name:string;
+  public isLoggedIn :boolean=false;
+   name:any;
+   role:any;
+   numOfItems:number;
   constructor(private _authService:AuthenticationService,private _router: Router)
    { 
    
    }
   ngOnInit(): void 
   {
-    this.userName= this._authService.getUsername();
-    console.log(this.userName);
-    //this. isUserLoggedIn()
-   // this.user=localStorage.getItem('user');
-    //let Iuser=JSON.parse(this.user);
-   //this.name=Iuser.userName; 
-   /* if(localStorage.getItem("logged")!=null&&localStorage.getItem("logged")=="true")
-    {
-       this.isUserAuthenticated=true;
-       this.user=localStorage.getItem('user');
-       let Iuser=JSON.parse(this.user);
-       this.name=Iuser.userName; 
+
+    if(localStorage.getItem('current_user')){
+     let current_user:User=JSON.parse(localStorage.getItem('current_user')||'{}')
+    this.numOfItems=current_user.products.length
     }
-    else if(localStorage.getItem("logged")!=null&&localStorage.getItem("logged")=="false" )
+    else
     {
-      this.isUserAuthenticated=false;
-    }*/
-   
+      this.numOfItems=0
+    }
+   this.name=this._authService.getUsername();
   }
   public logout = () => {
     this._authService.logout();
-   // localStorage.setItem("logged","false");
-    //this.isUserAuthenticated=false;
-   // this._router.navigate(["/"]);
   }
-  public isUserLoggedIn():boolean{
-    return this._authService.isLoggedIn();
+  isUserLoggedIn() 
+  {
+   return this._authService.isLoggedIn();
   }
-
- 
+  
 }

@@ -51,7 +51,7 @@ export class AuthenticationService
     }
 saveUserCartFirst()
 {
-  this.userList=JSON.parse(localStorage.getItem('users')||'');
+ this.userList=JSON.parse(localStorage.getItem('users')||'');
       console.log('the user are '+this.userList)
      // console.log(login.email)
      alert(this.userList.length)
@@ -67,6 +67,19 @@ saveUserCartFirst()
           break;
         }
       }
+}
+getRole():string {
+  if(localStorage.getItem('token')){
+      let token = localStorage.getItem('token');
+
+      let jwtData = token!.split('.')[1]
+
+      let decodedJwtJsonData = window.atob(jwtData)
+
+      let decodedJwtData = JSON.parse(decodedJwtJsonData)
+      return decodedJwtData.role;
+  }
+  return "No Role";
 }
     public isLoggedIn() {
       if(localStorage.getItem('token')){

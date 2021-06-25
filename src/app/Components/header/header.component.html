@@ -77,8 +77,8 @@
                         <a href="https://egypt.souq.com/eg-en/account.php">Track Orders</a>
                     </li>
                     
-                    <li class="myAccountLink show-for-non-minimal">
-                        <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+                    <li *ngIf="isUserAdmin()" class="myAccountLink show-for-non-minimal">
+                        <a class="nav-link"  routerLink="/dashboard">Dashboard</a>
                     </li>
 
                     <li id="Ship_To" class="region with-flyout" data-flyout-content=""><a href="javascript: void(0);"

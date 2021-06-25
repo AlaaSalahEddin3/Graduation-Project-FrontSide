@@ -62,7 +62,7 @@
                                         <ul class="no-bullet clearfix content-list">
                                             <li class="refinement" data-refinement="Pasta &amp; Noodles">
                                                 <label class="sk-clr2 sk-clr2-eff ">
-                                                    <input type="checkbox" class="valign-mid"
+                                                    <input type="checkbox" class="valign-mid" (change)="checkValue(isChecked?'A':'B',y.id)" 
                                                         data-refienment-for="id_type_item"
                                                         name="filters[id_type_item][]" value="591" data-track-target=""
                                                         data-track-name="refinementCheckboxes"

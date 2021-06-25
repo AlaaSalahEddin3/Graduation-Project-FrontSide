@@ -68,5 +68,8 @@ export class HeaderComponent implements OnInit {
     this.isUserAuthenticated=false;
     this._router.navigate(["/"]);
   }
- 
+  isUserAdmin():boolean{
+    let role = this._authService.getRole();
+    return (role == 'Admin') ? true : false
+  } 
 }

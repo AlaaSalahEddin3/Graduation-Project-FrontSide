@@ -29,7 +29,7 @@ errorMsg!:string;
 allModel!:Model[];
 prouctId!:number;
 AllBrand! :Brand[];
-
+isChecked!:any
   constructor(private route:ActivatedRoute,private _router:Router, private fb:FormBuilder,private productservice:ProductService,private categoryService:CategoryService,private subcategoryservice:SubcategoryService,private modelservice:ModelService,private brandService:BrandService) { }
 SubCategoryId!:number
   ngOnInit(): void {
@@ -146,5 +146,27 @@ addToCart(id:number)
   {
     alert('')
   }
+}
+checkValue(event:any,id:any)
+{
+  if(event=='A')
+  {
+    this.isChecked=false
+  }
+  else
+  {
+    this.isChecked=true
+  } 
+
+ console.log(event + id)
+}
+getProductsWithPrice(from:any,to:any)
+{
+  this.allProducts.forEach((element, index) => {
+    if (element.price <from &&element.price>to) {
+      this.allProducts.splice(index, 1);
+    }
+
+  });
 }
 }

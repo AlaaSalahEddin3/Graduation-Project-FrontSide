@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IuserLogin } from 'src/app/Models/IuserLogin';
+import { User } from 'src/app/Models/user';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+userList:any
   loginForm: FormGroup;
   errorMessage: string = '';
    showError: boolean;
@@ -37,9 +38,26 @@ public LoginUser = (loginFormValue: any) => {
       Email: login.Email,
       PasswordHash: login.PasswordHash
     };
+
     this.authService.loginUser(userForAuth)
       .subscribe(res=> {
+        console.log(userForAuth.Email)
         //localStorage.setItem("token", res.token);
+        //Searching for user loggedd in
+        this.userList=JSON.parse(localStorage.getItem('users')||'');
+        console.log('the user are '+this.userList)
+       // console.log(login.email)
+       alert(this.userList.length)
+        for(var i=0;i<this.userList.length;i++)
+        {
+          if(this.userList[i].email==userForAuth.Email)
+          {
+            alert('founded')
+            console.log(this.userList[i])
+            localStorage.setItem('current_user',JSON.stringify(this.userList[i]))
+            break;
+          }
+        }
         localStorage.setItem("token", JSON.stringify(res));
         localStorage.setItem("logged","true");
         this._router.navigate([this._returnUrl]);

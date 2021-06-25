@@ -45,7 +45,7 @@ getAllCategory()
 {
   this.categoryService.returnAllCategory().subscribe((data)=>{
     this.allCaregories=data;
-    this.clonedCategories=this.allCaregories.splice(0,13);
+    this.clonedCategories=this.allCaregories.splice(0,14);
   },(error)=>{alert(error)})
 
 }
@@ -61,8 +61,8 @@ getCurrentOffsetTop(element: ElementRef) {
 }
 getSubs(id:number)
 {
-  
-this.route.navigate(['/Getsubcategories/'+id]);
+ // alert(id);
+this.route.navigate(['/Getsubcategories',id]);
  /* this.subs=true;
    this.subcategoryservice.returnRlatedSubCategory(id).subscribe((data)=>{
      this.allSubCategories=data
@@ -81,7 +81,7 @@ public createImgPath = (serverPath: string) => {
 viewAllCategories()
 {
   this.subs=false;
-alert(this.subs)
+//alert(this.subs)
 this.route.navigate(['/allcategories']);
 }
 }

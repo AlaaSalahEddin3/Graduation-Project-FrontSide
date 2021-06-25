@@ -1,11 +1,10 @@
-<div class=" row" *ngIf="fixed">
+<div class=" row" >
     <div class="all" > <a (click)="viewAllCategories()">All Categories</a></div>
     
     <div class="column" *ngFor="let category of clonedCategories"><a (click)="getSubs(category.id)">{{category.name}}</a></div>
 
 </div>
 
-<router-outlet>
     
  <!--  <div class="subcategories" *ngIf="subs">
       <div class="column-img" *ngFor="let subcategory of clonedSubCategories">
@@ -14,4 +13,4 @@
 
       </div>
   </div> -->
-</router-outlet>
+

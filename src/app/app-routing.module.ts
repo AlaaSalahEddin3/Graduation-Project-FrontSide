@@ -19,6 +19,9 @@ import { SubCategoriesComponent } from './Components/dashboard/sub-categories/su
 //import { ShowComponent } from './Components/dashboard/SubCategory/show/show.component';
 import { UsersComponent } from './Components/dashboard/users/users.component';
 import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
+import { ShowProductComponent } from './Components/Client/home/show-product/show-product.component';
+import { UserCartComponent } from './Components/Client/user-cart/user-cart.component';
+import { HeaderComponent } from './Components/header/header.component';
 
 const routes: Routes = [
   {path:'Register',component:RegisterComponent},
@@ -35,7 +38,12 @@ const routes: Routes = [
 {path:'dashboard',component:DashboardComponent},
 {path:'allcategories',component:ShopAllCategoriesComponent},
 {path:'Getsubcategories/:id',component:ShopSubCategoriesComponent},
-{path:'CategorysUPdate/:id',component: UpdateCategoryComponent }
+{path:'CategorysUPdate/:id',component: UpdateCategoryComponent },
+{path:'relatedproducts/:id',component:ShowProductComponent},
+{path:'head',component:HeaderComponent},
+{
+  path:'cart',component:UserCartComponent
+}
 
 //{path:'allcategories',component}
 ];

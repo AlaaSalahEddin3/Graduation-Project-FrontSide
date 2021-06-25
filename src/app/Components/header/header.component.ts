@@ -3,9 +3,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Data, Router } from '@angular/router';
 import { combineAll } from 'rxjs/operators';
 import { IuserRegister } from 'src/app/Models/IuserRegister';
+import { User } from 'src/app/Models/user';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
-import { LoginComponent } from '../Authentication/login/login.component';
-import { RegisterComponent } from '../Authentication/register/register.component';
+//import { LoginComponent } from '../Authentication/login/login.component';
+//import { RegisterComponent } from '../Authentication/register/register.component';
 
 @Component({
   selector: 'app-header',
@@ -23,14 +24,22 @@ export class HeaderComponent implements OnInit {
    exp:string;
    lasttime:number;
    expire:string;
-  @ViewChild(RegisterComponent) register:RegisterComponent;
+   numOfItems:number
+  //@ViewChild(RegisterComponent) register:RegisterComponent;
   constructor(private _authService:AuthenticationService,private _router: Router)
    { 
    
    }
   ngOnInit(): void 
   {
-    
+    if(localStorage.getItem('current_user')){
+  let current_user:User=JSON.parse(localStorage.getItem('current_user')||'{}')
+  this.numOfItems=current_user.products.length
+    }
+    else
+    {
+      this.numOfItems=0
+    }
    // console.log(this.currentDate);
 
        //this.token=localStorage.getItem('token');

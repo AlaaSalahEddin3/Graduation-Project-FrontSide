@@ -66,4 +66,5 @@ getCategoryById(id:any):Observable<Category>
     return throwError(err.message ||"Internal Server error contact site adminstarator");
   }));
 }
+
 }

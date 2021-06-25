@@ -16,7 +16,7 @@ import { OrderComponent } from './Components/dashboard/order/order.component';
 import { IndexComponent } from './Components/dashboard/Categorys/index/index.component';
 import { AddCategoryComponent } from './Components/dashboard/Categorys/add-category/add-category.component';
 import { UpdateCategoryComponent } from './Components/dashboard/Categorys/update-category/update-category.component';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 //import { ConfirmModalComponent } from './reusedComponent/confirm-modal/confirm-modal.component';
 import { SubCategoriesComponent } from './Components/dashboard/sub-categories/sub-categories.component';
@@ -31,9 +31,10 @@ import { HomeComponent } from './Components/Client/home/home.component';
 import { ShopAllCategoriesComponent } from './Components/Client/shop-all-categories/shop-all-categories.component';
 import { ShopSubCategoriesComponent } from './Components/Client/shop-sub-categories/shop-sub-categories.component';
 import { QuickViewComponent } from './Components/Client/quick-view/quick-view.component';
-import { RegisterComponent } from './Components/Authentication/register/register.component';
+import { ShowProductComponent } from './Components/Client/home/show-product/show-product.component';
+import { UserCartComponent } from './Components/Client/user-cart/user-cart.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
-import { ShowProductComponent } from './Components/Client/show-product/show-product.component';
+import { RegisterComponent } from './Components/Authentication/register/register.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,6 @@ import { ShowProductComponent } from './Components/Client/show-product/show-prod
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    RegisterComponent,
-     LoginComponent,
   //  CategoriesComponent,
  
     //ProductComponent,
@@ -53,7 +52,7 @@ import { ShowProductComponent } from './Components/Client/show-product/show-prod
     AddCategoryComponent,
     UpdateCategoryComponent,
     SubCategoriesComponent,
-    ShowProductComponent,
+
     UploadComponent,
     AddProduComponent,
     AddBrandComponent,
@@ -62,7 +61,11 @@ import { ShowProductComponent } from './Components/Client/show-product/show-prod
     HomeComponent,
     ShopAllCategoriesComponent,
     ShopSubCategoriesComponent,
-    QuickViewComponent
+    QuickViewComponent,
+    ShowProductComponent,
+    UserCartComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     HttpClientModule,
@@ -70,7 +73,7 @@ import { ShowProductComponent } from './Components/Client/show-product/show-prod
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
     
     
   ],

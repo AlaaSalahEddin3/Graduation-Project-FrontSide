@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import {  IuserRegister } from '../Models/IuserRegister';
 import { IuserLogin } from '../Models/IuserLogin';
+import { ProducVM } from '../Models/produc-vm';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +42,32 @@ export class AuthenticationService
      {
         this._authChangeSub.next(isAuthenticated);
      }
+     userList:User[]
+     currentUser:User
      public logout = () => {
+    this.saveUserCartFirst()
         localStorage.removeItem("token");
+        localStorage.removeItem('current_user');
     }
-
+saveUserCartFirst()
+{
+  this.userList=JSON.parse(localStorage.getItem('users')||'');
+      console.log('the user are '+this.userList)
+     // console.log(login.email)
+     alert(this.userList.length)
+     this.currentUser = JSON.parse(localStorage.getItem('current_user') || '{}')
+      for(var i=0;i<this.userList.length;i++)
+      {
+        if(this.userList[i].email==this.currentUser.email)
+        {
+          alert('founded');
+            this.userList[i].products=this.currentUser.products
+          console.log(this.userList[i])
+    localStorage.setItem('users',JSON.stringify(this.userList))
+          break;
+        }
+      }
+}
     public isLoggedIn() {
       if(localStorage.getItem('token')){
           let token = localStorage.getItem('token');

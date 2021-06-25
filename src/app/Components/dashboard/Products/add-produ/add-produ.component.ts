@@ -96,7 +96,7 @@ this.productservice.getProductById(id).subscribe((data)=>{
     .pipe(first())
     .subscribe(
         data => {
-          alert("Succeeded");
+          console.log("Succeeded");
           this.allCategories=data;
           //  this._router.navigate([this._router.url]);
         },
@@ -113,7 +113,7 @@ this.productservice.getProductById(id).subscribe((data)=>{
     .pipe(first())
     .subscribe(
         data => {
-          alert("Succeeded");
+          console.log("Succeeded");
           this.allbrands=data;
           //  this._router.navigate([this._router.url]);
         },

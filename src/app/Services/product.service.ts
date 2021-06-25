@@ -19,15 +19,14 @@ export class ProductService {
     }
     ));
   }
-  
-  getaRelatedproducts(id:any): Observable<ProducVM[]> {
-    let url = `${environment.apiUrl}/api/GetAllWith/${id}`;
+  getNewArrivalsProducts(numberOfProducts:number): Observable<ProducVM[]> {
+    let url = `${environment.apiUrl}/api/product/newArrivals/${numberOfProducts}`;
     return this._http.get<ProducVM[]>(url).pipe(catchError((err) => {
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
-   }
-  getNewArrivalsProducts(numberOfProducts:number): Observable<ProducVM[]> {
-    let url = `${environment.apiUrl}/api/product/newArrivals/${numberOfProducts}`;
+  }
+  getRelatedProducts(id: number): Observable<ProducVM[]> {
+    let url = `${environment.apiUrl}/api/Product/GetAllWith/${id}`;
     return this._http.get<ProducVM[]>(url).pipe(catchError((err) => {
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));

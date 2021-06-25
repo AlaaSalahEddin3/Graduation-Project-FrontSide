@@ -36,11 +36,11 @@
 .rowpic
 {
   //  margin-top: 0px;
-    height: 200px;
+  //  height: 200px;
     width: 100%;
-    margin-top: 118px;
- margin-bottom: 300px;
-    background-color: black;
+    margin-top: 0px;
+ margin-bottom: 50px;
+  //  background-color: black;
 }
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {

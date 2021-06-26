@@ -148,13 +148,13 @@
             
         <div class="small-12 medium-6 large-8 columns extra search-wrapper clearPadding-h-small " id="search-mobile">
             <div class="header-search">
-                <form action="https://egypt.souq.com/eg-en/search_results.php" id="searchForm" method="get"><input
+                <form *ngIf="openSearch" (ngSubmit)="goToSearchPage(searchBar.value)"  id="searchForm" method="get"><input
                         type="hidden" id="hitsCfs" name="hitsCfs" value="a7b69ec6e44990bca78bc54235c8247b"><input
                         type="hidden" id="hitsCfsMeta" name="hitsCfsMeta"
                         value="vo5X6mEegtly9XYB7MwUIJXpBQs1lFH+sgYYU2XGSsgMphkGkVLQo9s8rsEsIz9yzKakWaRbTfQbXqOvrY/otYIPuWoQdFJ4d6OxRRFgAphBONFjxzxbcxPMQxYoaegS634zusjBl+e1um9N4wC2n81Hakl1j43iMdJ2vXdcQzs=">
                     <div class="input-group" id="search_box">
                         <input type="text" id="search_value" name="q" class="input-group-field"
-                            placeholder="What are you looking for?" autocomplete="off" tabindex="-1">
+                            placeholder="What are you looking for?" autocomplete="off" tabindex="-1" #searchBar>
                         <div class="input-group-button">
                             <button id="searchButton" class="button primary expand" type="submit" name="button"><i
                                     class="fi-magnifying-glass"></i></button>
@@ -170,7 +170,7 @@
         <div class="medium-3 large-2 columns user-area show-for-medium">
             <div id="mini-cart_topbar" class="mini-cart mini-cart_topbar_aj with-flyout" data-xleft-items="0"
                 data-flyout-content="">
-                <a href="https://egypt.souq.com/eg-en/shopping_cart.php" id="miniCartClose" class=""
+                <a routerLink="/cart" id="miniCartClose" class=""
                     data-translate="Cart" data-options="align:left" data-flyout="cartDrop_mobile"><i
                         class="fi-cart-new"></i> 
  

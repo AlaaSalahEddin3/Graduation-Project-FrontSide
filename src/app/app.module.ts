@@ -36,6 +36,7 @@ import { UserCartComponent } from './Components/Client/user-cart/user-cart.compo
 import { LoginComponent } from './Components/Authentication/login/login.component';
 import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
+import { SearchComponent } from './Components/Client/search/search.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { WishListComponent } from './Components/Client/wish-list/wish-list.compo
     UserCartComponent,
     LoginComponent,
     RegisterComponent,
-    WishListComponent
+    WishListComponent,
+    SearchComponent
   ],
   imports: [
     HttpClientModule,

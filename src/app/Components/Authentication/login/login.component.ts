@@ -11,7 +11,7 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-userList:any
+  userList:any;
   loginForm: FormGroup;
   errorMessage: string = '';
    showError: boolean;
@@ -41,12 +41,11 @@ public LoginUser = (loginFormValue: any) => {
 
     this.authService.loginUser(userForAuth)
       .subscribe(res=> {
-        console.log(userForAuth.Email)
-        //localStorage.setItem("token", res.token);
         //Searching for user loggedd in
-        this.userList=JSON.parse(localStorage.getItem('users')||'');
+        this.userList=JSON.parse(localStorage.getItem('users')||'[]');
+   
         console.log('the user are '+this.userList)
-       // console.log(login.email)
+         console.log(login.email)
        alert(this.userList.length)
         for(var i=0;i<this.userList.length;i++)
         {
@@ -58,8 +57,8 @@ public LoginUser = (loginFormValue: any) => {
             break;
           }
         }
-        localStorage.setItem("token", JSON.stringify(res));
-        localStorage.setItem("logged","true");
+       // localStorage.setItem("token", JSON.stringify(res));
+      //  localStorage.setItem("logged","true");
         this._router.navigate([this._returnUrl]);
        
       },

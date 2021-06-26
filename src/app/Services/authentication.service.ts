@@ -13,13 +13,12 @@ import { User } from '../Models/user';
 })
 export class AuthenticationService 
 {
-//UrlRegister='http://localhost:56568'; 
-  //UrlLogin ='http://localhost:56568';
-   token :any;  
-  header : any;  
+  token:any;  
+  header:any;  
   userID:string;
   userName:string;
   Role:string;
+  UserList:any;
     private _authChangeSub = new Subject<boolean>()
     public authChanged = this._authChangeSub.asObservable();
   constructor(private http : HttpClient,private router: Router)
@@ -104,18 +103,21 @@ export class AuthenticationService
     
 
 
-    userList:User[]
+    userList:User[];
     currentUser:User
+
     public logout = () => {
-      this.saveUserCartFirst()
+      this.saveUserCartFirst();
+      localStorage.removeItem('current_user');
        localStorage.removeItem("token");
-       localStorage.removeItem('current_user');
+      
        localStorage.removeItem("expires_at");
        // this.router.navigate(['/Login']);
    }
 saveUserCartFirst()
 {
- this.userList=JSON.parse(localStorage.getItem('users')||'');
+
+     this.userList=JSON.parse(localStorage.getItem('users')||'[]');
      console.log('the user are '+this.userList)
     // console.log(login.email)
     alert(this.userList.length)
@@ -126,8 +128,8 @@ saveUserCartFirst()
        {
          alert('founded');
            this.userList[i].products=this.currentUser.products
-         console.log(this.userList[i])
-   localStorage.setItem('users',JSON.stringify(this.userList))
+           console.log(this.userList[i])
+           localStorage.setItem('users',JSON.stringify(this.userList))
          break;
        }
      }

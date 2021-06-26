@@ -24,6 +24,7 @@ import { UserCartComponent } from './Components/Client/user-cart/user-cart.compo
 import { HeaderComponent } from './Components/header/header.component';
 import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
 import { HomeComponent } from './Components/Client/home/home.component';
+import { SearchComponent } from './Components/Client/search/search.component';
 
 const routes: Routes = [
   {path:'Register',component:RegisterComponent},
@@ -47,8 +48,9 @@ const routes: Routes = [
   path:'cart',component:UserCartComponent
 },
 {path:'wishList',component:WishListComponent},
-{path:'home',component:HomeComponent}
-//{path:'allcategories',component}
+{path:'home',component:HomeComponent},
+{path:'search-results/:searchkeyword',component:SearchComponent}
+//{path:'allcategories',component}search-results
 ];
 
 @NgModule({

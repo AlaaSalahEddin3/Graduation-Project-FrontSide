@@ -39,7 +39,6 @@ export class WishListComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          //after delete from database delete from array to uptate wishlist view
            this.deletedProd = this.products.find(pc => pc.id == prodID);
           this.products.splice(this.products.indexOf(this.deletedProd), 1);
         },
@@ -47,21 +46,6 @@ export class WishListComponent implements OnInit {
 
         });
   }
- /* addProductToCart(productId: number) {
-
-    this._cartService.addProductToCart(productId).subscribe(
-      data => {
-        //after add product to cart remove it from wishlist
-        this.deleteProductFromWishList(productId);
-        alert("added to cart")
-      },
-      error => {
-        alert(error);
-      }
-    )
-
-  }*/
-
   public createImgPath = (serverPath: string) => {
     return `${environment.apiUrl}/${serverPath}`;
   }
@@ -80,10 +64,11 @@ export class WishListComponent implements OnInit {
     });
     return founded
   }
-  addToCart(id:number)
+ addToCart(id:number)
 {
   
-  if (localStorage.getItem('current_user')) {
+  if (localStorage.getItem('current_user')) 
+  {
  if(!this.checkIfItemAlreadyExists(id)){
     this.currentUser = JSON.parse(localStorage.getItem('current_user') || '{}')
     this.userCart = this.currentUser.products

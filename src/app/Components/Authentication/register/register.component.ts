@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit
         this.showSuccess=true;
         this.successMessage ='Successful registration'
          console.log("Successful registration");
-         localStorage.setItem('user', JSON.stringify(res));
+         //localStorage.setItem('user', JSON.stringify(res));
          //creating object contains his email and array of products
         this.suser={
           email:user.Email,

@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   public isLoggedIn :boolean=false;
    name:any;
    role:any;
+   openSearch:boolean = true;
    numOfItems:number;
   constructor(private _authService:AuthenticationService,private _router: Router)
    { 
@@ -44,4 +45,15 @@ export class HeaderComponent implements OnInit {
    return this._authService.isLoggedIn();
   }
   
+  openSearchBar(){
+    this.openSearch = true;
+  }
+  closeSearchBar(){
+    this.openSearch = false;
+  }
+  
+ 
+  goToSearchPage(searchKey:any){
+    this._router.navigate([`/search-results/${searchKey}`])
+  }
 }

@@ -26,7 +26,7 @@ export class WishlistService {
           headers:this.headers_object
         };
     let url = `${environment.apiUrl}/api/wishlist`;
-    return this._http.get<ProducVM[]>(url , httpOptions).pipe(catchError((err) => {
+    return this._http.get<ProducVM[]>(url ,httpOptions).pipe(catchError((err) => {
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
   }

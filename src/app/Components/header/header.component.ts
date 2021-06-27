@@ -26,7 +26,8 @@ export class HeaderComponent implements OnInit {
    }
   ngOnInit(): void 
   {
-
+     if(localStorage.getItem('token')==null)
+     this._router.navigate(['/Register']);
     if(localStorage.getItem('current_user')){
      let current_user:User=JSON.parse(localStorage.getItem('current_user')||'{}')
     this.numOfItems=current_user.products.length
@@ -56,4 +57,5 @@ export class HeaderComponent implements OnInit {
   goToSearchPage(searchKey:any){
     this._router.navigate([`/search-results/${searchKey}`])
   }
+
 }

@@ -3,7 +3,7 @@ import { observable } from 'rxjs';
 
 import { SubCategory } from '../Models/sub-category';
 import {catchError} from 'rxjs/operators';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable ,throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -14,7 +14,10 @@ import { environment } from 'src/environments/environment';
 export class SubcategoryService {
 
   
-  constructor(private http:HttpClient) { }
+
+ constructor(private http: HttpClient) 
+ {
+  }
   //url='http://localhost:56568/api/controller';
   url= environment.apiUrl+'/api/Sub_Category';
   returnRlatedSubCategory(id:any):Observable<SubCategory[]>

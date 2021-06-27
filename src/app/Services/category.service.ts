@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {catchError} from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable ,throwError } from 'rxjs';
 import { Category } from '../Models/category';
@@ -14,15 +14,19 @@ import { CustomCategories } from '../Models/custom-categories';
 export class CategoryService {
 
   
-  constructor(private http:HttpClient) { }
-  //url='http://localhost:56568/api/controller';
+ constructor(private http: HttpClient) 
+ {
+    
+  }
+  //url='http://localhost:56568/api/controller';,{headers:headers}
   url=environment.apiUrl+'/api/Category';
   
   addCategory(category:Category): Observable<any> {
+   
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(category);
 
-    return this.http.post<Category>(this.url, body,{headers:headers})
+    return this.http.post<Category>(this.url, body)
 }
 
     returnAllCategory():Observable<Category[]>
@@ -42,6 +46,7 @@ export class CategoryService {
         }));
     }
     updateCategory(id:any,category:Category): Observable<Category> {
+    
       return this.http.put<Category>(this.url+'/'+id,category).pipe(
         catchError((err)=>{
           console.log("erro ocuured")
@@ -52,6 +57,7 @@ export class CategoryService {
       );
   }
   deleteCategory(id: number):Observable<number>{
+   
     return this.http.delete<number>(this.url+'/'+id)
     .pipe(
       catchError( (err) => {
@@ -66,5 +72,4 @@ getCategoryById(id:any):Observable<Category>
     return throwError(err.message ||"Internal Server error contact site adminstarator");
   }));
 }
-
 }

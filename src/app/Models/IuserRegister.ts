@@ -1,5 +1,5 @@
 export interface IuserRegister {
-    UserName:string,
+    userName:string,
     PasswordHash:string,
       Email:string,
      ConfirmPassword:string,

@@ -119,5 +119,8 @@ return this.totalprice
       this._router.navigate(['/Login']);
     }
   }
+  Savecartdata(){
+    localStorage.setItem("TotalPrice",`${this.totalprice}`)
+  }
  
 }

@@ -17,7 +17,7 @@ export class AppComponent {
   // on route change to '/login', set the variable showHead to false
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if ((event['url'] == '/Login')||(event['url'] =='/Register'))
+        if ((event['url'] == '/Login')||(event['url'] =='/Register')||(event['url']=='/BillingAddress'))
          {
           this.showHead = false;
          } 

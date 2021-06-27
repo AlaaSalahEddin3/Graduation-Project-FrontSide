@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit
   ngOnInit(): void 
   {
     this.registerForm = new FormGroup({
-      UserName: new FormControl('',[Validators.required]),
+      userName: new FormControl('',[Validators.required]),
       Email: new FormControl('', [Validators.required,Validators.pattern(this.emailPattern)]),// Validators.email,Validators.pattern(this.emailPattern)
       PasswordHash: new FormControl('', [Validators.required]),
       ConfirmPassword: new FormControl('',[Validators.required])
@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit
     this.showError = this.showSuccess = false;
     const formValues = { ...registerFormValue };
     const user: IuserRegister = {
-       UserName: formValues.UserName,
+       userName: formValues.userName,
       Email: formValues.Email,
       PasswordHash: formValues.PasswordHash,
       ConfirmPassword: formValues.ConfirmPassword
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit
           products:[]
         }
 ////////pushing the new user into list
-        this.userList=JSON.parse(localStorage.getItem('users')||'{}')||[]
+        this.userList=JSON.parse(localStorage.getItem('users')||'[]')//||[]
         this.userList.push(this.suser)
         localStorage.setItem('users',JSON.stringify(this.userList))
          if(this.showSuccess==true)

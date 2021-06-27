@@ -37,6 +37,8 @@ import { LoginComponent } from './Components/Authentication/login/login.componen
 import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
 import { SearchComponent } from './Components/Client/search/search.component';
+import { BillingAddressComponent } from './Components/Client/billing-address/billing-address.component';
+import { PaymentComponent } from './Components/Client/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,10 @@ import { SearchComponent } from './Components/Client/search/search.component';
     LoginComponent,
     RegisterComponent,
     WishListComponent,
-    SearchComponent
+    SearchComponent,
+   BillingAddressComponent,
+   PaymentComponent,
+   OrderComponent
   ],
   imports: [
     HttpClientModule,

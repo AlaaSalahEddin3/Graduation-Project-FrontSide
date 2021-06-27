@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {catchError} from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable ,throwError } from 'rxjs';
 import { Category } from '../Models/category';
@@ -13,7 +13,11 @@ import { MockExecutor } from 'protractor/built/driverProviders';
 })
 export class ModelService {
 
-  constructor(private http:HttpClient) { }
+ constructor(private http: HttpClient) 
+ {
+   
+
+  }
   //url='http://localhost:56568/api/controller';
   url=environment.apiUrl+'/api/Model';
   

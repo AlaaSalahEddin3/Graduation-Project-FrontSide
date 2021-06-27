@@ -56,11 +56,11 @@
      <label for="ap_customer_name" class="a-form-label">
           Your name
         </label>
-        <input type="text" formControlName="UserName" maxlength="50" id="ap_customer_name" autocomplete="off" name="customerName" tabindex="1" class="a-input-text a-span12 auth-autofocus auth-required-field auth-contact-verification-request-info"/>
+        <input type="text" formControlName="userName" maxlength="50" id="ap_customer_name" autocomplete="off" name="customerName" tabindex="1" class="a-input-text a-span12 auth-autofocus auth-required-field auth-contact-verification-request-info"/>
       <div id="auth-customerName-missing-alert" class="a-box a-alert-inline a-alert-inline-info auth-inlined-information-message a-spacing-top-mini" aria-live="assertive" role="alert">
         <div class="a-box-inner a-alert-container">
           <div class="a-alert-content"></div>
-        <em *ngIf="validateControl('UserName') && hasError('UserName', 'required')"><i class="a-icon a-icon-alert"></i>User Name is required</em>
+        <em *ngIf="validateControl('userName') && hasError('userName', 'required')"><i class="a-icon a-icon-alert"></i>User Name is required</em>
       <!--<div class="a-box-inner a-alert-container"><i class="a-icon a-icon-alert"></i><div class="a-alert-content">-->
    </div>
   </div>

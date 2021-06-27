@@ -74,7 +74,7 @@ this.flag=true
         this.currentUser.products=this.userCart
         localStorage.setItem('current_user', JSON.stringify(this.currentUser))
          this.numOfItems=this.userCart.length
-         window.location.reload();
+        // window.location.reload();
       }
 
     });

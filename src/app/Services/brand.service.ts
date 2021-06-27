@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {catchError} from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable ,throwError } from 'rxjs';
 import { Category } from '../Models/category';
@@ -13,7 +13,10 @@ export class BrandService {
 
  
   
-  constructor(private http:HttpClient) { }
+ constructor(private http: HttpClient) 
+ {
+    
+  }
   //url='http://localhost:56568/api/controller';
   url=environment.apiUrl+'/api/Brand';
   

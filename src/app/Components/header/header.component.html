@@ -77,7 +77,7 @@
                         <a href="https://egypt.souq.com/eg-en/account.php">Track Orders</a>
                     </li>
                     
-                    <li *ngIf="isUserAdmin()" class="myAccountLink show-for-non-minimal">
+                    <li  class="myAccountLink show-for-non-minimal">
                         <a class="nav-link" routerLink="/dashboard">Dashboard</a>
                     </li>
 
@@ -188,7 +188,7 @@
                     <span>.</span><span>.</span><span>.</span>
                 </label>
                 <a class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf='!isUserLoggedIn()' ><span class="show-for-large" >Hello. </span>Log In</a>
-                <a  *ngIf='isUserLoggedIn()' class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" ><span class="show-for-large" >Hello.</span>{{name}}</a>
+                <a  *ngIf='isUserLoggedIn()' class="truncate userNameField" id="userNameField_topbar" routerLink="/Login" ><span class="show-for-large" ></span>{{name}}</a>
 
                 <div class="flyout user-menu hidden">
                     <!-- Buy it again box -->

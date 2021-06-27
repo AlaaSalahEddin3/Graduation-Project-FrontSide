@@ -25,6 +25,8 @@ import { HeaderComponent } from './Components/header/header.component';
 import { WishListComponent } from './Components/Client/wish-list/wish-list.component';
 import { HomeComponent } from './Components/Client/home/home.component';
 import { SearchComponent } from './Components/Client/search/search.component';
+import { BillingAddressComponent } from './Components/Client/billing-address/billing-address.component';
+import { PaymentComponent } from './Components/Client/payment/payment.component';
 
 const routes: Routes = [
   {path:'Register',component:RegisterComponent},
@@ -49,7 +51,10 @@ const routes: Routes = [
 },
 {path:'wishList',component:WishListComponent},
 {path:'home',component:HomeComponent},
-{path:'search-results/:searchkeyword',component:SearchComponent}
+{path:'search-results/:searchkeyword',component:SearchComponent},
+
+{path:'BillingAddress',component:BillingAddressComponent},
+{path:'Payment',component:PaymentComponent},
 //{path:'allcategories',component}search-results
 ];
 

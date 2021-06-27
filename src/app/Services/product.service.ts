@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProducVM } from '../Models/produc-vm';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -9,8 +9,12 @@ import { Product } from '../Models/product';
   providedIn: 'root'
 })
 export class ProductService {
-  constructor(private _http: HttpClient) { }
+ 
+ constructor(private _http: HttpClient) 
+ {
+    
 
+  }
   getAllProducts(): Observable<ProducVM[]> {
    let url = `${environment.apiUrl}/api/Product`;
     return this._http.get<ProducVM[]>(url).pipe(catchError((err) =>

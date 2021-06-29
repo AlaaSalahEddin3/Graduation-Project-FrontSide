@@ -24,11 +24,11 @@ export class UserCartComponent implements OnInit {
 deleted=false;
 conunter:number=0;
   ngOnInit(): void {
-  
+
 }
   ngAfterViewInit(){
   //  window.location.reload();
-this.CalctotalPrice()
+  this.CalctotalPrice()
 
   }
 
@@ -42,6 +42,7 @@ this.CalctotalPrice()
     });
     return founded
   }
+
   getCart() {
 
     if (localStorage.getItem('current_user')) {
@@ -55,7 +56,7 @@ this.CalctotalPrice()
   
       }
       else {
-        alert('not founded things')
+       // alert('not founded things')
       }
 this.flag=true
    return this.userCart
@@ -74,7 +75,8 @@ this.flag=true
         this.currentUser.products=this.userCart
         localStorage.setItem('current_user', JSON.stringify(this.currentUser))
          this.numOfItems=this.userCart.length
-        // window.location.reload();
+        window.location.reload();
+      
       }
 
     });

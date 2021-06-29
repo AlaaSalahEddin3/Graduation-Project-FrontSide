@@ -1,4 +1,3 @@
-
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,191 +23,181 @@ import { threadId } from 'worker_threads';
   styleUrls: ['./show-product.component.scss']
 })
 export class ShowProductComponent implements OnInit {
-  allProducts!:ProducVM[];
-allCategories!:SubCategory[];
-errorMsg!:string;
-allModel!:Model[];
-prouctId!:number;
-AllBrand! :Brand[];
-catId!:any
+  allProducts!: ProducVM[];
+  allCategories!: SubCategory[];
+  errorMsg!: string;
+  allModel!: Model[];
+  prouctId!: number;
+  AllBrand!: Brand[];
+  catId!: any
 
-  constructor(private route:ActivatedRoute,private _router:Router, private fb:FormBuilder,private productservice:ProductService,private categoryService:CategoryService,private subcategoryservice:SubcategoryService,private modelservice:ModelService,private brandService:BrandService) { }
-SubCategoryId!:number
+  constructor(private route: ActivatedRoute, private _router: Router, private fb: FormBuilder, private productservice: ProductService, private categoryService: CategoryService, private subcategoryservice: SubcategoryService, private modelservice: ModelService, private brandService: BrandService) { }
+  SubCategoryId!: number
   ngOnInit(): void {
-  
+
     this.returnAllBrands();
 
     const routeParams = this.route.snapshot.paramMap;
     this.SubCategoryId = Number(routeParams.get('id'));
-    this.catId=Number(routeParams.get('id1'));
+    this.catId = Number(routeParams.get('id1'));
     this.gettingSubCategories(this.catId);
     //alert(this.catId)
     this.returnAllProducts(this.SubCategoryId);
   }
- 
-  gettingSubCategories(id:any)
-  {
+
+  gettingSubCategories(id: any) {
     this.subcategoryservice.returnRlatedSubCategory(id)
-    .pipe(first())
-    .subscribe(
+      .pipe(first())
+      .subscribe(
         data => {
- //         alert("Succeeded");
-          this.allCategories=data;
+          //         alert("Succeeded");
+          this.allCategories = data;
           //  this._router.navigate([this._router.url]);
         },
         error => {
-            this.errorMsg = error;
+          this.errorMsg = error;
           //  this.loading = false;
-        }); 
+        });
   }
-  returnAllProducts(id:number)
-  {
-    this.productservice.getRelatedProducts(id).subscribe((data)=>{
-      this.allProducts=data;
+  returnAllProducts(id: number) {
+    this.productservice.getRelatedProducts(id).subscribe((data) => {
+      this.allProducts = data;
 
       console.log(this.allProducts);
     }
-    ,(error)=>{
-      alert(error)
-    })
+      , (error) => {
+        alert(error)
+      })
 
   }
- 
-  
-  returnallcategory()
-  {
-   
+
+
+  returnallcategory() {
+
     this.categoryService.returnAllCategory()
-    .pipe(first())
-    .subscribe(
+      .pipe(first())
+      .subscribe(
         data => {
- //         alert("Succeeded");
+          //         alert("Succeeded");
           //this.allCategories=data;
           //  this._router.navigate([this._router.url]);
         },
         error => {
-            this.errorMsg = error;
+          this.errorMsg = error;
           //  this.loading = false;
         });
-  
-}
-  returnAllBrands()
-  {
+
+  }
+  returnAllBrands() {
 
     this.brandService.returnAllBrans()
-  
-    .subscribe(
+
+      .subscribe(
         data => {
           //alert("Succeeded");
-          this.AllBrand=data;
+          this.AllBrand = data;
           console.log(data);
           //  this._router.navigate([this._router.url]);
         },
         error => {
-            this.errorMsg = error;
-            alert(error)
+          this.errorMsg = error;
+          alert(error)
           //  this.loading = false;
         });
-  
-}
-public createImgPath = (serverPath: string) => {
-  return `${environment.apiUrl}/${serverPath}`;
-}
-currentUser:User
-userCart:ProducVM[]
-numOfItems:number
-checkIfItemAlreadyExists(id: number) {
-  this.currentUser = JSON.parse(localStorage.getItem('current_user') || '{}')
-  this.userCart = this.currentUser.products
-  let founded = false
-  this.userCart.forEach((element, index) => {
-    if (element.id == id) {
-      founded = true
-    }
 
-  });
-  return founded
-}
-addToCart(id:number)
-{
-  
- 
-
-  if (localStorage.getItem('current_user')) {
- if(!this.checkIfItemAlreadyExists(id)){
+  }
+  public createImgPath = (serverPath: string) => {
+    return `${environment.apiUrl}/${serverPath}`;
+  }
+  currentUser: User
+  userCart: ProducVM[]
+  numOfItems: number
+  checkIfItemAlreadyExists(id: number) {
     this.currentUser = JSON.parse(localStorage.getItem('current_user') || '{}')
     this.userCart = this.currentUser.products
-    this.numOfItems = this.userCart.length
-     
-      this.productservice.getProductById(id).subscribe((data) => {
-        console.log(data);
-        this.userCart.push(data);
+    let founded = false
+    this.userCart.forEach((element, index) => {
+      if (element.id == id) {
+        founded = true
+      }
+
+    });
+    return founded
+  }
+  addToCart(id: number) {
+
+
+
+    if (localStorage.getItem('current_user')) {
+      if (!this.checkIfItemAlreadyExists(id)) {
+        this.currentUser = JSON.parse(localStorage.getItem('current_user') || '{}')
+        this.userCart = this.currentUser.products
+        this.numOfItems = this.userCart.length
+
+        this.productservice.getProductById(id).subscribe((data) => {
+          console.log(data);
+          this.userCart.push(data);
           console.log(this.userCart)
 
-        localStorage.setItem('current_user', JSON.stringify(this.currentUser))
-  
-      //  this._router.navigate([currentUrl]);
-       /*  this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this._router.navigate([currentUrl])} */
+          localStorage.setItem('current_user', JSON.stringify(this.currentUser))
+alert('Product Added');
+          //  this._router.navigate([currentUrl]);
+          /*  this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+             this._router.navigate([currentUrl])} */
           //  window.location.reload();
 
         }, (error) => {
           alert(error);
         })
-      
+
+      }
+      else {
+        alert('this is already in your cart')
+      }
+    //  this._router.navigate(['/cart']);
     }
     else {
-      alert('this is already in your cart')
-    } 
-  this._router.navigate(['/cart']);
+     
+    }
   }
-  else
-  {
-    alert('')
-  }
-}
-getProductsWithPrice(from:any,to:any)
-{
-  //alert(from);
-  this.allProducts.forEach((element, index) => {
-    if (element.price <from ||element.price>to) {
-      this.allProducts.splice(index, 1);
-      alert('yees');
+  getProductsWithPrice(from: any, to: any) {
+    //alert(from);
+    this.allProducts.forEach((element, index) => {
+      if (element.price < from || element.price > to) {
+        this.allProducts.splice(index, 1);
 
-    }})}
-    filterBySubCategories(e:any,subCategoryId:number)
-{
-  alert(subCategoryId)
-  if(e.target.checked){
-    
-    this.productservice.getRelatedProducts(subCategoryId).subscribe((data)=>{
-      this.allProducts=data;
-    },(error)=>{
-console.log(error)
+      }
     })
-  console.log(e + subCategoryId)
-}
-else
-{
-  this.returnAllProducts(this.SubCategoryId);
-}
-}
-filterByBrands(e:any,brandId:number)
-{
-  alert(brandId)
-  if(e.target.checked){
-    
-      this.modelservice.returnRlatedModels(brandId).subscribe((data)=>{
-        
+  }
+  filterBySubCategories(e: any, subCategoryId: number) {
+    alert(subCategoryId)
+    if (e.target.checked) {
 
-      },(error)=>{
+      this.productservice.getRelatedProducts(subCategoryId).subscribe((data) => {
+        this.allProducts = data;
+      }, (error) => {
         console.log(error)
       })
- // console.log(e + subCategoryId)
-}
-else
-{
-  this.returnAllProducts(this.SubCategoryId);
-}
-}
+      console.log(e + subCategoryId)
+    }
+    else {
+      this.returnAllProducts(this.SubCategoryId);
+    }
+  }
+  filterByBrands(e: any, brandId: number) {
+    alert(brandId)
+    if (e.target.checked) {
+
+      this.modelservice.returnRlatedModels(brandId).subscribe((data) => {
+
+
+      }, (error) => {
+        console.log(error)
+      })
+      // console.log(e + subCategoryId)
+    }
+    else {
+      this.returnAllProducts(this.SubCategoryId);
+    }
+  }
 }

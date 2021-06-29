@@ -1,8 +1,11 @@
 export class IOrder{
-    orderdate!:string;
-    id!:number;
-    totalPrice!:string;
-    applicationUserIdentity_Id:string;
-    appUser:any;
+   
+  constructor(  public  totalPrice:number,
+   public applicationUserIdentity_Id:string)
+  {
+
+  }
+
+
 
 }

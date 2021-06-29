@@ -58,6 +58,7 @@ Reset() {
 addCategory(category: Category) {  
   //debugger;  
   category.id= this.id;  
+  console.log(this.response.dbPath)
   category.image=this.response.dbPath
   this.categoryService.addCategory(category).subscribe(  
    () => {  
@@ -66,11 +67,16 @@ addCategory(category: Category) {
     this.Reset();  
     this.id = 0; 
     this.router.navigate(['/categories']);     
-   });  
-   this.router.navigate(['/Category/Index']);
+   },
+   (error)=>{
+console.log(error)
+   }
+  )
+   //this.router.navigate(['/Category/Index']);
  } 
  public uploadFinished = (event:any) => { 
   this.response = event;
+  
 }
 
 }

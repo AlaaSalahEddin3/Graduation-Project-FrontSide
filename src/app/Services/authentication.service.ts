@@ -98,7 +98,7 @@ export class AuthenticationService
             this.userID =decodedJwtData['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
             return this.userID;
         }
-        return null;
+        return '';
     }
     
   getUsername(){
@@ -133,13 +133,13 @@ saveUserCartFirst()
      this.userList=JSON.parse(localStorage.getItem('users')||'[]');
      console.log('the user are '+this.userList)
     // console.log(login.email)
-    alert(this.userList.length)
+ //  alert(this.userList.length)
     this.currentUser = JSON.parse(localStorage.getItem('current_user') || '{}')
      for(var i=0;i<this.userList.length;i++)
      {
        if(this.userList[i].email==this.currentUser.email)
        {
-         alert('founded');
+   //      alert('founded');
            this.userList[i].products=this.currentUser.products
            console.log(this.userList[i])
            localStorage.setItem('users',JSON.stringify(this.userList))
@@ -147,6 +147,7 @@ saveUserCartFirst()
        }
      }
 }
+
 }
 
 

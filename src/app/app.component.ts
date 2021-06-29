@@ -18,6 +18,17 @@ export class AppComponent {
     let role = this._authService.getRole();
     return (role == 'Admin') ? true : false
   }
+
+
+
+
+
+
+
+
+
+
+
   constructor(private router: Router,private _authService:AuthenticationService) {
   // on route change to '/login', set the variable showHead to false
     router.events.forEach((event) => {
@@ -34,4 +45,5 @@ export class AppComponent {
       }
     });
   }
+ 
 }

@@ -56,7 +56,7 @@ public LoginUser = (loginFormValue: any) => {
    
         console.log('the user are '+this.userList)
          console.log(login.email)
-       alert(this.userList.length)
+      // alert(this.userList.length)
         for(var i=0;i<this.userList.length;i++)
         {
           if(this.userList[i].email==userForAuth.Email)

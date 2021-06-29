@@ -10,6 +10,8 @@
  
 
   <app-header *ngIf="showHead"></app-header>
-<app-home *ngIf="showHead"></app-home> 
+
+<!-- <app-home *ngIf="showHead"></app-home>  -->
+<app-homebody  *ngIf="!isUserAdmin()&&showHead"></app-homebody>
 <router-outlet></router-outlet>
 <app-footer *ngIf="showHead"></app-footer> 

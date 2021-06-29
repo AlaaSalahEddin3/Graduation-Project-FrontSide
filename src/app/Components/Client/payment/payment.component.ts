@@ -77,7 +77,10 @@ export class PaymentComponent implements OnInit {
       {
      
         this.TotalPrice =  localStorage.getItem("TotalPrice")
-        this.orderDetails = {id:0,applicationUserIdentity_Id:"" ,appUser:"",orderdate:new Date().toLocaleDateString(),totalPrice:this.TotalPrice};
+        var id=localStorage.getItem('userId')
+       // Number(localStorage.getItem('TotalPrice'));
+        this.orderDetails =new  IOrder(Number(localStorage.getItem('TotalPrice')),JSON.stringify(localStorage.getItem('userId')))
+       // this.orderDetails = {applicationUserIdentity_Id:localStorage.getItem('userId') ,appUser:"",orderdate:new Date().toLocaleDateString(),totalPrice:this.TotalPrice};
         this._orderservice.makeOrder(this.orderDetails)
           .pipe(first())
           .subscribe(
@@ -88,6 +91,7 @@ export class PaymentComponent implements OnInit {
             },
             error => {
     
+              alert(error);
             });
 
       }

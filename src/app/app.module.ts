@@ -39,6 +39,7 @@ import { WishListComponent } from './Components/Client/wish-list/wish-list.compo
 import { SearchComponent } from './Components/Client/search/search.component';
 import { BillingAddressComponent } from './Components/Client/billing-address/billing-address.component';
 import { PaymentComponent } from './Components/Client/payment/payment.component';
+import { HomebodyComponent } from './Components/Client/home/homebody/homebody.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { PaymentComponent } from './Components/Client/payment/payment.component'
     WishListComponent,
     SearchComponent,
 PaymentComponent,
-BillingAddressComponent
+BillingAddressComponent,
+HomebodyComponent
 
   ],
   imports: [

@@ -13,7 +13,7 @@ import { IPayment } from '../Models/IPayment';
 export class PaymentService {
   token:any=localStorage.getItem('token');
   headers_object :any;
-  paymentList:IPayment[];
+  paymentList:IPayment[]=[];
   constructor(private _http:HttpClient)
    { this.headers_object = new HttpHeaders().set("Authorization", "Bearer " + this.token); }
 

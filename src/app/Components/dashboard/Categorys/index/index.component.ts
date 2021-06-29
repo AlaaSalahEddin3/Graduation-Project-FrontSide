@@ -58,6 +58,7 @@ Reset() {
  } 
  public createImgPath = (serverPath: string) => {
   return `${environment.apiUrl}/${serverPath}`;
+
 }
 
 }

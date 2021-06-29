@@ -64,11 +64,13 @@ export class RegisterComponent implements OnInit
           products:[]
         }
 ////////pushing the new user into list
-        this.userList=localStorage.getItem('users')||[]
+        this.userList=JSON.parse(localStorage.getItem('users')||'[]')
         this.userList.push(this.suser)
         localStorage.setItem('users',JSON.stringify(this.userList))
          if(this.showSuccess==true)
          {
+          var userId= this._authService.getUserId()
+          localStorage.setItem('userId',JSON.stringify(userId))
             this._router.navigate(['/Login']);
          }
        },

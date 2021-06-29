@@ -35,11 +35,9 @@ headers_object :any;
       return throwError(err.message ||"Internal Server error contact site adminstarator");
     }));
   }
-  makeOrder(order:IOrder){const httpOptions = {
-    headers:this.headers_object
-  };
+  makeOrder(order:IOrder){
     let url = `${environment.apiUrl}/api/order`;
-    return this._http.post<IOrder>(url, order,httpOptions)
+    return this._http.post<IOrder>(url, order)
             .pipe(catchError((err)=>{
               return throwError(err.message ||"Internal Server error contact site adminstarator");
                 }

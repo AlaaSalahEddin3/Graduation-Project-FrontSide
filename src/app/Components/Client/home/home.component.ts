@@ -27,12 +27,18 @@ all!:boolean
 fewCategories!:CustomCategories[]
 newArrivals!:ProducVM[]
 //@HostListener('window:scroll', ['$event']) 
-  constructor(private productservice:ProductService,private categoryService:CategoryService,private subcategoryservice:SubcategoryService,private route:Router) { }
+  constructor( private productservice:ProductService,private categoryService:CategoryService,private subcategoryservice:SubcategoryService,private route:Router) { }
 src:string
 images:string[]=[]
 rendomImage!:string
   ngOnInit(): void {
-  
+ /*  if(this.route.url.includes('/Getsubcategories')||this.route.url.includes('allcategories'||this.route.url.includes('relatedproducts')||this.route.url.includes('Payment')||this.route.url.includes('cart')))
+  {
+this.home=true
+  }
+else{
+  this.home=false
+} */
     this.getAllCategory();
   //  console.log(window.pageYOffset)
     window.onscroll=()=>{
@@ -105,30 +111,25 @@ getCurrentOffsetTop(element: ElementRef) {
   const rect = element.nativeElement.getBoundingClientRect();
   return rect.top + window.pageYOffset - document.documentElement.clientTop;
 }
-found:boolean=true;
+home:boolean=false;
 
 getSubs(id:number)
 {
-  this.found=false;
- // alert(id);
+ // this.home=true;
+
+
+ this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+
+ this.route.onSameUrlNavigation = 'reload';
 this.route.navigate(['/Getsubcategories',id]);
- /*
-   this.subcategoryservice.returnRlatedSubCategory(id).subscribe((data)=>{
-     this.allSubCategories=data
-    
-     this.getNumberOfRows(this.allSubCategories.length);
- this.clonedSubCategories=this.allSubCategories.splice(0,this.numOfRows*4)
- localStorage.setItem("subs","true");
-   },(error)=>{
-     alert(error);
-   });
-*/
+
 }
 public createImgPath = (serverPath: string) => {
   return `${environment.apiUrl}/${serverPath}`;
 }
 viewAllCategories()
 {
+//  this.home=true;
   this.subs=false;
 //alert(this.subs)
 this.route.navigate(['/allcategories']);

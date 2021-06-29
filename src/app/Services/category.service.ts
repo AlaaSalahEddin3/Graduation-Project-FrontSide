@@ -26,7 +26,7 @@ export class CategoryService {
     const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(category);
 
-    return this.http.post<Category>(this.url, body)
+    return this.http.post<Category>(this.url, body,{headers:headers})
 }
 
     returnAllCategory():Observable<Category[]>

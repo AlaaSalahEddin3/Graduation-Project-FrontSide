@@ -29,17 +29,18 @@ import { BillingAddressComponent } from './Components/Client/billing-address/bil
 import { PaymentComponent } from './Components/Client/payment/payment.component';
 
 const routes: Routes = [
+  {path:'',component:HomeComponent},
   {path:'Register',component:RegisterComponent},
   {path:'Login',component:LoginComponent},
-  {path: 'dashboard/categories', component: IndexComponent},
+  {path: 'categories', component: IndexComponent},
   {path: 'orders', component:OrderComponent},
-  {path: 'dashboard/products', component:AddProduComponent},
+  {path: 'products', component:AddProduComponent},
   {path: 'users', component: UsersComponent},
   {path:"AddCategory",component:AddCategoryComponent},
 {path:'subCategories',component:SubCategoriesComponent},
-{path:'dashboard/brans',component:AddBrandComponent},
-{path:'dashboard/models',component:ModelComponent},
-{path:'dashboard/subcategories',component:SubCategoriesComponent},
+{path:'brans',component:AddBrandComponent},
+{path:'models',component:ModelComponent},
+{path:'subcategories',component:SubCategoriesComponent},
 {path:'dashboard',component:DashboardComponent},
 {path:'allcategories',component:ShopAllCategoriesComponent},
 {path:'Getsubcategories/:id',component:ShopSubCategoriesComponent},
@@ -49,6 +50,7 @@ const routes: Routes = [
 {
   path:'cart',component:UserCartComponent
 },
+
 {path:'wishList',component:WishListComponent},
 {path:'home',component:HomeComponent},
 {path:'search-results/:searchkeyword',component:SearchComponent},

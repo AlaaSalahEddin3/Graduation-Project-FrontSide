@@ -59,7 +59,7 @@ export class OrderComponent implements OnInit {
         this.allOrders = data
         for( let order of  this.allOrders){
           this._accountService.UserData(order.applicationUserIdentity_Id).subscribe(datas=>{
-            order.appUser=datas.userName  
+          //  order.appUser=datas.userName  
           })
         }
 

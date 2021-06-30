@@ -92,14 +92,18 @@ return this.totalprice
 
     });
   }
-  changeTotalPrice(qty: any, id: number) {
-    alert(id);
-    this.userCart.forEach((element, index) => {
-      if (element.id == id) {
-        this.totalprice += element.price * qty - element.price;
-      }
-
-    });
+  changeTotalPrice(id:number, e:any) {
+    //alert(qty);
+    console.log(e);
+    for(var i=0;i<this.userCart.length;i++)
+    {
+      console.log(this.userCart[i])
+      //if (this.userCart[i].id == id) 
+      //{
+       // this.totalprice += this.userCart[i].price * qty - this.userCart[i].price;
+      //}
+    }
+   
   }
 
   addProductToWishlist(productId:number) {

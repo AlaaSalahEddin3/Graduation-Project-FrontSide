@@ -41,6 +41,15 @@ export class ProductService {
       return throwError(err.message || "Internal Server error contact site adminstarator");
     }));
   }
+
+
+
+  getProductByts(id: number): Observable<Product> {
+    let url = `${environment.apiUrl}/api/product/${id}`;
+    return this._http.get<Product>(url).pipe(catchError((err) => {
+      return throwError(err.message || "Internal Server error contact site adminstarator");
+    }));
+  }
   addNewProduct(newProduct: Product): Observable<Product> {
     console.log(newProduct);
     let url = `${environment.apiUrl}/api/product`;

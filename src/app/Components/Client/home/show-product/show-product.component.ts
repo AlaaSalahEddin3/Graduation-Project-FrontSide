@@ -141,10 +141,7 @@ export class ShowProductComponent implements OnInit {
 
           localStorage.setItem('current_user', JSON.stringify(this.currentUser))
 alert('Product Added');
-          //  this._router.navigate([currentUrl]);
-          /*  this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-             this._router.navigate([currentUrl])} */
-          //  window.location.reload();
+        
 
         }, (error) => {
           alert(error);
@@ -162,8 +159,10 @@ alert('Product Added');
   }
   getProductsWithPrice(from: any, to: any) {
     //alert(from);
+    
     this.allProducts.forEach((element, index) => {
-      if (element.price < from || element.price > to) {
+      let price=this.calcPriceAfterDiscount(element.price,element.discount)
+      if (price< from || price > to) {
         this.allProducts.splice(index, 1);
 
       }
@@ -199,5 +198,10 @@ alert('Product Added');
     else {
       this.returnAllProducts(this.SubCategoryId);
     }
+  }
+  calcPriceAfterDiscount(price:number,discount:number)
+  {
+     return  Math.floor(price-(price*(discount/100)))
+    //{{item.price-(item.price *(item.discount/100))}}  
   }
 }

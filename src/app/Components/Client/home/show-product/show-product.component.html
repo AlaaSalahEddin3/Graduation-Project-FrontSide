@@ -172,11 +172,11 @@
                             <div class="row row-padding-15">
                                 <div class="column medium-7">
                                     <h5 class="price">
-                                        <span class="is block sk-clr1">{{item.price-(item.price *(item.discount/100))}}
+                                        <span class="is block sk-clr1">{{calcPriceAfterDiscount(item.price,item.discount)}}
                                             <small class="currency-text sk-clr1">EGP</small>
                                         </span>
                                         <span class="was block">{{item.price}}
-                                            <small class="currency-text"></small>EGP
+                                         <small class="currency-text">  &nbsp;&nbsp;   &nbsp;&nbsp; </small>EGP
                                         </span>
                                         <!-- <span class="">You save 30.05
                                                     <small class="currency-text"></small>EGP</span>

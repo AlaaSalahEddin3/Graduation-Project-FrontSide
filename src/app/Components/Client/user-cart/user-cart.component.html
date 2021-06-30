@@ -14,12 +14,13 @@
         </div>
         <div class="col">
             <span>Qty</span>
-           <select ng-change="hint()">
+            <select (change)="changeTotalPrice(product.id,$event)">
 
-               <option  value={{num}} *ngFor="let num of quantities">
+               <option  value={{num}} *ngFor="let num of [1,2,3,4,5,6,7,8,9,10,11]">
                    {{num}}
                </option>
-           </select>
+           </select> 
+           <!--  <input type="number"  (change)="changeTotalPrice($event)">  -->
         </div>
         <br>
     <hr class="hr">

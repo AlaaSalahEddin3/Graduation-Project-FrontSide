@@ -75,16 +75,26 @@ get formfields(){return this.productform.controls}
   {
 this.action='update';
 this.flag=true;
-this.productservice.getProductById(id).subscribe((data)=>{
-  this.prouctId=data.id;
+this.productservice.getProductByts(id).subscribe((data)=>{
+  
+  this.prouctId=data.Id;
+  console.log(data)
   this.productform.setValue({
+
     name:data.name,
+    category:'select categpry',
+   brand:"select brand",
+   subcategory:data.sub_Catogery_Id,
     discount:data.discount,
      price:data.price,
      description:data.description,
      quantity:data.quantity,
-     Model:data.modelName,
-     subcategory:data.subCatgoryName
+     model:"Select model"
+
+
+
+    
+ 
   })
 },()=>{})
 
@@ -142,14 +152,14 @@ this.productservice.getProductById(id).subscribe((data)=>{
 {
   let newProduct:Product = {
     Id:0 , 
-    Name: this.formfields.name.value,
+    name: this.formfields.name.value,
     price: this.formfields.price.value,
     description: this.formfields.description.value,
     discount: this.formfields.discount.value,
     image : this.response.dbPath,
     quantity: this.formfields.quantity.value,
-    Sub_Catogery_Id:this.formfields.subcategory.value,
-    Model_Id:this.formfields.model.value
+    sub_Catogery_Id:this.formfields.subcategory.value,
+    model_Id:this.formfields.model.value
   };
   this.productservice.addNewProduct(newProduct)
       .pipe(first())
